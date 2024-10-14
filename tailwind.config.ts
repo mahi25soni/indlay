@@ -8,10 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      borderColor : {
+        "basic" : "#EDF0EF",
       },
+      borderRadius : {
+        // 12 20 24 70
+        "12" : "12px",
+        "20" : "20px",
+        "24" : "24px",
+        "70" : "70px"
+      },
+      colors: {
+        "cta" : "#074A6A",
+        "cta-darker" : "#022D42",
+        "primary" : "#FE6240"
+      },
+
     },
   },
   plugins: [],
