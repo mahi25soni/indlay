@@ -12,10 +12,7 @@ const config: Config = {
         "basic" : "#EDF0EF",
       },
       borderRadius : {
-        // 12 20 24 70
-        "12" : "12px",
         "20" : "20px",
-        "24" : "24px",
         "70" : "70px"
       },
       colors: {
@@ -23,6 +20,9 @@ const config: Config = {
         "cta-darker" : "#022D42",
         "primary" : "#FE6240"
       },
+      padding : {
+        "15" : "60px"
+      }
 
     },
   },
