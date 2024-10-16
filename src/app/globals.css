@@ -21,4 +21,12 @@ body,
 
 :root {
   --bg-color : #FBFBFB;
+  --filtered-btn-active : #FE6240;
+  --filtered-btn-secondary : #FFFFFF;
+}
+
+.heading {
+  font-weight : 500;
+  font-size : 32px;
+  color : #000000;
 }

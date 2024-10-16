@@ -8,22 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      borderColor : {
-        "basic" : "#EDF0EF",
+      borderColor: {
+        basic: "#EDF0EF",
       },
-      borderRadius : {
-        "20" : "20px",
-        "70" : "70px"
+      borderRadius: {
+        "20": "20px",
+        "70": "70px",
       },
       colors: {
-        "cta" : "#074A6A",
-        "cta-darker" : "#022D42",
-        "primary" : "#FE6240"
+        cta: "#074A6A",
+        "cta-darker": "#022D42",
+        secondary: "var(--filtered-btn-secondary)",
+        primary: "var(--filtered-btn-active)",
       },
-      padding : {
-        "15" : "60px"
-      }
-
+      padding: {
+        "15": "60px",
+      },
     },
   },
   plugins: [],
