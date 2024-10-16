@@ -1,13 +1,14 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Hero/Hero";
 import React from "react";
+import Listing from "@/components/Listing/Listing";
 const HomePage = () => {
+
   return (
     <div className="relative">
       <Navbar />
       <Hero />
-      {/*  Navbar */}
-      {/*  Hero */}
+      <Listing />
       {/*  Services */}
       {/*  Collections */}
       {/*  Map */}
@@ -21,6 +22,7 @@ const HomePage = () => {
       {/*  Trusted By Company */}
       {/*  Banner */}
       {/*  Footer */}
+
     </div>
   );
 };
