@@ -23,6 +23,8 @@ body,
   --bg-color : #FBFBFB;
   --filtered-btn-active : #FE6240;
   --filtered-btn-secondary : #FFFFFF;
+  --light-text : #9B9EA6;
+  --border-color : #EDF0EF;
 }
 
 .heading {

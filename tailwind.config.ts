@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       borderColor: {
-        basic: "#EDF0EF",
+        basic: "var(--border-color)",
       },
       borderRadius: {
         "20": "20px",
@@ -20,6 +20,8 @@ const config: Config = {
         "cta-darker": "#022D42",
         secondary: "var(--filtered-btn-secondary)",
         primary: "var(--filtered-btn-active)",
+        "light-gray" : "var(--light-text)",
+        basic : "var(--border-color)",
       },
       padding: {
         "15": "60px",
