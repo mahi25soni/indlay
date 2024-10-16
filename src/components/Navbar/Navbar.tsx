@@ -59,7 +59,7 @@ const Navbar = () => {
         </div>
       </div>
       {hoveredTab && (
-        <div className="absolute z-20 flex h-80 max-h-[350px] w-full transform gap-10 bg-[--bg-color] px-15 transition-all duration-300 ease-in-out">
+        <div className="absolute z-50 flex h-80 max-h-[350px] w-full transform gap-10 bg-[--bg-color] px-15 transition-all duration-300 ease-in-out">
           {tabs[hoveredTab].sections.map((section) => {
             return (
               <div key={section.heading}>
