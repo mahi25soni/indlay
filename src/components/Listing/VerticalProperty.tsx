@@ -6,7 +6,14 @@ import { IoMdAdd } from "react-icons/io";
 import { FiPhoneCall } from "react-icons/fi";
 import Image from "next/image";
 
-const VerticalProperty = () => {
+interface VerticalPropertyProps {
+    name: string;
+    address: string;
+    isBestSeller: boolean;
+    id: string;
+}
+
+const VerticalProperty = (data : VerticalPropertyProps) => {
   return (
     <div className="bg-secondary relative flex w-[312px] flex-col rounded-20 border border-basic">
       <div className="relative max-h-[180px]">
@@ -21,8 +28,8 @@ const VerticalProperty = () => {
 
       <div className="border-b border-basic p-4">
         <div className="mb-6 flex flex-col gap-2">
-          <p className="text-base">Solitaire Industrial Park</p>
-          <p className="text-light-gray text-xs">28B Highgate Road, London</p>
+          <p className="text-base">{data?.name}</p>
+          <p className="text-light-gray text-xs">{data?.address}</p>
         </div>
         <div className="text-light-gray grid grid-cols-2 gap-3">
           <div className="flex items-center gap-1">
