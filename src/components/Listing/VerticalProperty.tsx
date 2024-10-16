@@ -1,19 +1,18 @@
 import React from "react";
 import { BsFuelPumpDieselFill } from "react-icons/bs";
-import { FaFire } from "react-icons/fa";
-import { FaTruck } from "react-icons/fa";
+import { FaFire, FaRegHeart, FaTruck } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import { FiPhoneCall } from "react-icons/fi";
 import Image from "next/image";
 
 interface VerticalPropertyProps {
-    name: string;
-    address: string;
-    isBestSeller: boolean;
-    id: string;
+  name: string;
+  address: string;
+  isBestSeller: boolean;
+  id: string;
 }
 
-const VerticalProperty = (data : VerticalPropertyProps) => {
+const VerticalProperty = (data: VerticalPropertyProps) => {
   return (
     <div className="bg-secondary relative flex w-[312px] flex-col rounded-20 border border-basic">
       <div className="relative max-h-[180px]">
@@ -24,6 +23,18 @@ const VerticalProperty = (data : VerticalPropertyProps) => {
           height={180}
           className="rounded-t-20"
         />
+        <div className="absolute left-0 top-0 z-20 flex w-full items-start justify-between p-3">
+          {data?.isBestSeller && (
+            <div className="bg-bestseller rounded-70 px-2 py-1 text-xs">
+              Best Seller
+            </div>
+          )}
+          <div></div>
+
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-500 bg-gray-500">
+            <FaRegHeart className="h-6 w-6 text-white" />
+          </div>
+        </div>
       </div>
 
       <div className="border-b border-basic p-4">

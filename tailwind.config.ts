@@ -22,6 +22,7 @@ const config: Config = {
         primary: "var(--filtered-btn-active)",
         "light-gray" : "var(--light-text)",
         basic : "var(--border-color)",
+        bestseller : "var(--bg-bestseller)",
       },
       padding: {
         "15": "60px",
