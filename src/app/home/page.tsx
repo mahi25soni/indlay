@@ -3,7 +3,7 @@ import Hero from "@/components/Hero/Hero";
 import React from "react";
 const HomePage = () => {
   return (
-    <div>
+    <div className="relative">
       <Navbar />
       <Hero />
       {/*  Navbar */}
