@@ -1,9 +1,12 @@
 "use client";
 import { listingTestData } from "@/testdata/listing-data";
 import React, { useEffect, useState } from "react";
-import VerticalProperty from "./VerticalProperty";
 import { GoArrowRight } from "react-icons/go";
 
+import dynamic from "next/dynamic";
+const VerticalProperty = dynamic(
+  () => import("@/components/Listing/VerticalProperty"),
+);
 interface ListValueData {
   name: string;
   address: string;

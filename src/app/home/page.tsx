@@ -1,9 +1,10 @@
-import Navbar from "@/components/Navbar/Navbar";
-import Hero from "@/components/Hero/Hero";
 import React from "react";
-import Listing from "@/components/Listing/Listing";
-const HomePage = () => {
 
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() => import("@/components/Navbar/Navbar"));
+const Hero = dynamic(() => import("@/components/Hero/Hero"));
+const Listing = dynamic(() => import("@/components/Listing/Listing"));
+const HomePage = () => {
   return (
     <div className="relative">
       <Navbar />
@@ -22,7 +23,6 @@ const HomePage = () => {
       {/*  Trusted By Company */}
       {/*  Banner */}
       {/*  Footer */}
-
     </div>
   );
 };

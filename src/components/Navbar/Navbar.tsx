@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import SearchBar from "../SearchBar/SearchBar";
 import { FaCodeCompare } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
 import { GoArrowUpRight, GoArrowDownRight } from "react-icons/go";
 import { navbarTabData } from "@/testdata/navbar-test-data";
 
+import dynamic from "next/dynamic";
+const SearchBar = dynamic(() => (import("@/components/SearchBar/SearchBar")));
 interface TabData {
   image: string;
   sections: {
