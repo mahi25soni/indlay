@@ -4,12 +4,17 @@ import dynamic from "next/dynamic";
 const Navbar = dynamic(() => import("@/components/Navbar/Navbar"));
 const Hero = dynamic(() => import("@/components/Hero/Hero"));
 const Listing = dynamic(() => import("@/components/Listing/Listing"));
+const Services = dynamic(
+  () => import("@/components/ServicesComponent/ServicesComponent"),
+);
 const HomePage = () => {
   return (
     <div className="relative">
       <Navbar />
       <Hero />
+      <Services />
       <Listing />
+
       {/*  Services */}
       {/*  Collections */}
       {/*  Map */}
