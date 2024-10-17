@@ -7,12 +7,17 @@ const Listing = dynamic(() => import("@/components/Listing/Listing"));
 const Services = dynamic(
   () => import("@/components/ServicesComponent/ServicesComponent"),
 );
+const Collections = dynamic(() => import("@/components/Collections/Collections"));
+
+
+
 const HomePage = () => {
   return (
     <div className="relative">
       <Navbar />
       <Hero />
       <Services />
+      <Collections/>
       <Listing />
 
       {/*  Services */}
