@@ -6,7 +6,7 @@ const CollectionItem = () => {
   return (
     <div className="mt-7 flex gap-4">
       {/* Card 1 */}
-      <div className="">
+      <div className="max-h-full gap-2">
         <div className="grid max-w-full grid-cols-2 gap-2">
           <div className="relative col-span-2 h-[180px] w-[477px] overflow-hidden rounded-[20px] bg-[#C6F8FF]">
             <div className="relative z-10 flex h-full items-center justify-between px-4">
@@ -83,9 +83,9 @@ const CollectionItem = () => {
           <Image
             src="/collection5.png"
             alt="Logo"
-            width={600}
+            width={586}
             height={389}
-            className="h-full w-full object-contain"
+            className="absolute bottom-0 h-full w-full rounded-[20px] object-contain"
           />
         </div>
 
@@ -94,13 +94,13 @@ const CollectionItem = () => {
             <p className="h-[54px] w-[103px] text-[24px] font-medium leading-[26.88px] text-[#00343C]">
               Category Name
             </p>
-            <div className="flex-shrink">
+            <div className="h-full flex-shrink-0">
               <Image
                 src="/collection6.png"
                 alt="Logo"
                 width={192}
                 height={210}
-                className="h-auto object-contain"
+                className="h-full w-auto object-contain"
               />
             </div>
           </div>
