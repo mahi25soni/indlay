@@ -7,9 +7,10 @@ const Listing = dynamic(() => import("@/components/Listing/Listing"));
 const Services = dynamic(
   () => import("@/components/ServicesComponent/ServicesComponent"),
 );
-const Collections = dynamic(() => import("@/components/Collections/Collections"));
-
-
+const Collections = dynamic(
+  () => import("@/components/Collections/Collections"),
+);
+const AboutUs = dynamic(() => import("@/components/AboutUs/AboutUs"));
 
 const HomePage = () => {
   return (
@@ -17,8 +18,9 @@ const HomePage = () => {
       <Navbar />
       <Hero />
       <Services />
-      <Collections/>
+      <Collections />
       <Listing />
+      <AboutUs />
 
       {/*  Services */}
       {/*  Collections */}

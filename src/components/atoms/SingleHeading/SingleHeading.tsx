@@ -2,7 +2,7 @@ import React from "react";
 
 interface SingleHeadingProps {
   firstLine: string;
-  secondLine: string;
+  secondLine?: string;
 }
 const SingleHeading = ({ firstLine, secondLine }: SingleHeadingProps) => {
   return (
