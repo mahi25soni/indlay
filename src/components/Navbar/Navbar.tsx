@@ -28,9 +28,9 @@ const Navbar = () => {
     setTabs(tabData);
   }, []);
   return (
-    <div className="relative">
+    <div className="sticky top-0 z-9999 bg-[--bg-color]">
       <div
-        className={`h-[142px] border-basic px-15 ${hoveredTab ? "border-none" : "border-b"}`}
+        className={`h-[142px] border-basic  px-15 ${hoveredTab ? "border-none" : "border-b"}`}
       >
         <div className="flex h-[88px] items-center justify-between">
           <Image src="/logo.png" alt="Logo" width={118} height={48} />
