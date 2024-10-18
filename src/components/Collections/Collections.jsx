@@ -6,7 +6,7 @@ const CollectionItem = dynamic(() => import("./CollectionItem"));
 
 const Collections = () => {
   return (
-    <div className="mt-14 px-15">
+    <div className="mt-20 px-15">
       <div className="flex justify-between">
         <div className="h-[38px] w-[372px] text-[32px] font-medium leading-[38.4px]">
           Explore Our Collections

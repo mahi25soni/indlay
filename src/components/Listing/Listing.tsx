@@ -36,7 +36,7 @@ const Listing = () => {
     setShowData(listData[filter]);
   };
   return (
-    <div className="flex flex-col gap-8 px-15">
+    <div className="flex flex-col gap-8 px-15 mt-20">
       <div className="flex flex-col items-center gap-4">
         <div className="heading text-center leading-10">
           <div>Discover our finest properties</div>

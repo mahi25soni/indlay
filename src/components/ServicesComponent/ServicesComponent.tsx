@@ -18,7 +18,7 @@ const ServicesComponent = () => {
     setServiceDataList(servicesData);
   }, []);
   return (
-    <div className="px-15">
+    <div className="px-15 mt-20">
       <div className="heading mb-6 mt-14 flex flex-col items-center justify-center">
         <div>Navigate seamlessly with our</div>
         <div className="text-center">exclusive services</div>

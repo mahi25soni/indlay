@@ -19,9 +19,15 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative mt-8 px-15">
+    <div className="relative mt-20 px-15">
       <div>
-        <Image src="/Photo.png" alt="Logo" width={1320} height={366} className="w-full"/>
+        <Image
+          src="/Photo.png"
+          alt="Logo"
+          width={1320}
+          height={366}
+          className="w-full"
+        />
       </div>
       <div
         className="top-1/5 absolute left-1/2 flex -translate-x-1/2 -translate-y-1/2 transform justify-center rounded-full bg-white shadow-lg"
