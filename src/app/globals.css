@@ -17,6 +17,7 @@ body,
   height: 100%;
   width: 100%;
   background-color:  #FBFBFB;
+  
 }
 
 :root {
@@ -26,10 +27,16 @@ body,
   --light-text : #9B9EA6;
   --border-color : #EDF0EF;
   --bg-bestseller : #C8FFEE;
+  
 }
 
 .heading {
   font-weight : 500;
   font-size : 32px;
   color : #000000;
+}
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
