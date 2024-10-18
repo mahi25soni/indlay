@@ -25,38 +25,14 @@ export const servicesData = [
     },
     {
       icon: "/webicon.png",
-      service_name: "Data Analysis"
+      service_name: "Marketing Consultancy"
     },
     {
       icon: "/webicon.png",
-      service_name: "IT Support"
+      service_name: "SEO Optimization"
     },
     {
       icon: "/webicon.png",
-      service_name: "Content Creation"
+      service_name: "App Development"
     },
-    {
-      icon: "/webicon.png",
-      service_name: "Digital Strategy"
-    },
-    {
-      icon: "/webicon.png",
-      service_name: "Cloud Computing"
-    },
-    {
-      icon: "/webicon.png",
-      service_name: "UI/UX Design"
-    },
-    {
-      icon: "/webicon.png",
-      service_name: "Cybersecurity"
-    },
-    {
-      icon: "/webicon.png",
-      service_name: "Network Administration"
-    },
-    {
-      icon: "/webicon.png",
-      service_name: "Blockchain Consulting"
-    }
   ];

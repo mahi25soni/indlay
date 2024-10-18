@@ -1,33 +1,25 @@
 "use client";
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 import { GoArrowRight } from "react-icons/go";
 
-const ServicesItem = () => {
+interface ServiceItemProp {
+  icon: string;
+  service_name: string;
+}
+
+const ServicesItem = (data: ServiceItemProp) => {
   return (
-    <div className=' flex gap-[24px]'>
-      
-      <div className='h-[180px] w-[166px] border border-basic rounded-[12px] bg-secondary flex flex-col justify-between'>
-        <div className='ml-3 mt-3'>
-          <Image src="/webicon.png" alt="Services" width={48} height={48} />
-        </div>
-        <div className='flex justify-between items-center px-3 pb-3'>
-          <p className="text-[16px] max-w-[89px] font-medium leading-[17.92px]">Engineering Service</p>
-          <GoArrowRight className="w-[24px] h-[24px]" />
-        </div>
+    <div className="flex min-h-[180px] min-w-[166px] flex-col justify-between rounded-[12px] border border-basic bg-secondary">
+      <div className="ml-3 mt-3">
+        <Image src={data?.icon} alt="Services" width={48} height={48} />
       </div>
-
-      <div className='h-[180px] w-[166px] border border-basic rounded-[12px] bg-secondary flex flex-col justify-between'>
-        <div className='ml-3 mt-3'>
-          <Image src="/webicon2.png" alt="Services" width={48} height={48} />
-        </div>
-        <div className='flex justify-between items-center px-3 pb-3'>
-          <p className="text-[16px] max-w-[89px] font-medium leading-[17.92px]">Rentel  Service</p>
-          <GoArrowRight className="w-[24px] h-[24px]" />
-        </div>
+      <div className="flex items-center justify-between px-3 pb-3">
+        <p className="max-w-[89px] text-[16px] font-medium leading-[17.92px]">
+          {data?.service_name}
+        </p>
+        <GoArrowRight className="h-[24px] w-[24px]" />
       </div>
-
-
     </div>
   );
 };
