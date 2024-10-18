@@ -27,6 +27,11 @@ const config: Config = {
       padding: {
         "15": "60px",
       },
+      zIndex : {
+        100 : "100",
+        200 : "200",
+        9999 : "9999",
+      }
     },
   },
   plugins: [],
