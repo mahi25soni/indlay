@@ -11,6 +11,9 @@ const Collections = dynamic(
   () => import("@/components/Collections/Collections"),
 );
 const AboutUs = dynamic(() => import("@/components/AboutUs/AboutUs"));
+const ListingLine = dynamic(
+  () => import("@/components/ListingLine/ListingLine"),
+);
 
 const HomePage = () => {
   return (
@@ -21,7 +24,7 @@ const HomePage = () => {
       <Collections />
       <Listing />
       <AboutUs />
-
+      <ListingLine />
       {/*  Services */}
       {/*  Collections */}
       {/*  Map */}

@@ -8,7 +8,7 @@ interface HeadingAndButtonProps {
 const HeadingAndButton = ({ heading, children }: HeadingAndButtonProps) => {
   return (
     <div className="flex justify-between">
-      <div className="heading leading-10">Explore Our Collections</div>
+      <div className="heading leading-10">{heading}</div>
 
       {children}
     </div>

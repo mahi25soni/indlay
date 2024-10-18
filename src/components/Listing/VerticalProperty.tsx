@@ -14,7 +14,7 @@ interface VerticalPropertyProps {
 
 const VerticalProperty = (data: VerticalPropertyProps) => {
   return (
-    <div className="bg-secondary relative flex w-[312px] flex-col rounded-20 border border-basic">
+    <div className="bg-secondary relative flex flex-none w-[312px] flex-col rounded-20 border border-basic">
       <div className="relative max-h-[180px]">
         <Image
           src="/testing.jpg"
