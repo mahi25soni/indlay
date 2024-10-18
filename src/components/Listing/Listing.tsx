@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { GoArrowRight } from "react-icons/go";
 
 import dynamic from "next/dynamic";
+import SingleHeading from "../atoms/SingleHeading/SingleHeading";
 const VerticalProperty = dynamic(
   () => import("@/components/Listing/VerticalProperty"),
 );
@@ -38,10 +39,7 @@ const Listing = () => {
   return (
     <div className="flex flex-col gap-8 px-15 mt-20">
       <div className="flex flex-col items-center gap-4">
-        <div className="heading text-center leading-10">
-          <div>Discover our finest properties</div>
-          <div>tailored for you</div>
-        </div>
+        <SingleHeading firstLine="Discover our finest properties" secondLine="tailored for you" />
         <div className="flex gap-2">
           {Object.keys(listData).map((filter) => {
             return (

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { servicesData } from "@/testdata/service-data";
+import SingleHeading from "../atoms/SingleHeading/SingleHeading";
 const ServicesItem = dynamic(
   () => import("@/components/ServicesComponent/ServicesItem"),
 );
@@ -19,12 +20,10 @@ const ServicesComponent = () => {
   }, []);
   return (
     <div className="px-15 mt-20">
-      <div className="heading mb-6 mt-14 flex flex-col items-center justify-center">
-        <div>Navigate seamlessly with our</div>
-        <div className="text-center">exclusive services</div>
-      </div>
+      <SingleHeading firstLine="Navigate seamlessly with our" secondLine="exclusive services" />
 
-      <div className="flex gap-[24px] overflow-auto scrollbar-hidden">
+
+      <div className="flex gap-[24px] overflow-auto scrollbar-hidden mt-6">
         {serviceDataList.map((data) => (
           <ServicesItem {...data} />
         ))}
