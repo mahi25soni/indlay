@@ -18,17 +18,59 @@ const Hero = () => {
     setPopularSearches(defaultSearches);
   }, []);
 
+
+  const typingTexts = ["Industrial Property","Resale Property", "Parks", "Services"];
+  const [currentText, setCurrentText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0); 
+  const [typingIndex, setTypingIndex] = useState(0); 
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      if (!isDeleting) {
+        if (typingIndex < typingTexts[currentIndex].length) {
+          setCurrentText((prev) => prev + typingTexts[currentIndex].charAt(typingIndex));
+          setTypingIndex((prev) => prev + 1);
+        } else {
+          setTimeout(() => setIsDeleting(true), 2000); 
+        }
+      } else {
+        if (typingIndex > 0) {
+          setCurrentText((prev) => prev.slice(0, typingIndex - 1));
+          setTypingIndex((prev) => prev - 1);
+        } else {
+          setIsDeleting(false);
+          setCurrentIndex((prev) => (prev + 1) % typingTexts.length);
+        }
+      }
+    };
+
+    const typingSpeed = isDeleting ? 100 : 150; 
+    const timer = setTimeout(handleTyping, typingSpeed);
+
+    return () => clearTimeout(timer); 
+  }, [currentText, typingIndex, isDeleting, currentIndex, typingTexts]);
+
   return (
     <div className="relative mt-20 px-15">
-      <div>
+      <div className="relative">
         <Image
-          src="/Photo.png"
+          src="/Hero.png"
           alt="Logo"
           width={1320}
           height={366}
           className="w-full"
         />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-center text-secondary max-w-[393px] h-[190px]">
+          <h2 className="text-[48px] leading-[57.6px] font-normal">We help people</h2>
+          <p className="text-[48px] leading-[57.6px] font-normal w-[371px]">get their dreams</p>
+          <p className="text-[48px] leading-[65.81px] font-normal tracking-tighter-[2%] text-primary">
+            {currentText}
+            <span className="blinking-cursor">|</span> 
+          </p>
+        </div>
       </div>
+
       <div
         className="top-1/5 absolute left-1/2 flex -translate-x-1/2 -translate-y-1/2 transform justify-center rounded-full bg-white shadow-lg"
         style={{ boxShadow: "0px 4px 30px 0px rgba(0, 0, 0, 0.05)" }}

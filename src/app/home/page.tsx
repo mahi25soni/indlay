@@ -15,6 +15,8 @@ const ListingLine = dynamic(
   () => import("@/components/ListingLine/ListingLine"),
 );
 
+const Video= dynamic(() => import("@/components/VideoComponent/VideoComponent"));
+
 const HomePage = () => {
   return (
     <div className="relative">
@@ -23,6 +25,7 @@ const HomePage = () => {
       <Services />
       <Collections />
       <Listing />
+      <Video />
       <AboutUs />
       <ListingLine />
       {/*  Services */}
