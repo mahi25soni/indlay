@@ -1,12 +1,16 @@
 export const navbarTabData = {
   "Industrial Properties": {
-    image: "https://example.com/images/industrial-properties.jpg", // Placeholder image URL
+    image: "https://res.cloudinary.com/dpizzap0w/image/upload/v1729344368/Indlay/testing_tddcri.png", // Placeholder image URL
     sections: [
       {
         heading: "Warehouse",
         subheadings: [
           "High-Ceiling Warehouse",
           "Temperature Controlled Warehouse",
+          "Shared Industrial Space",
+          "High-Ceiling Warehouse",
+          "Temperature Controlled Warehouse",
+          "Shared Industrial Space",
           "Shared Industrial Space",
         ],
       },
@@ -16,6 +20,9 @@ export const navbarTabData = {
           "Heavy Equipment Unit",
           "Light Assembly Unit",
           "Automation Unit",
+          "High-Ceiling Warehouse",
+          "Temperature Controlled Warehouse",
+          "Shared Industrial Space",
         ],
       },
       {
@@ -34,11 +41,30 @@ export const navbarTabData = {
           "Cold Storage Facilities",
         ],
       },
+      {
+        heading: "Manufacturing Unit",
+        subheadings: [
+          "Heavy Equipment Unit",
+          "Light Assembly Unit",
+          "Automation Unit",
+          "High-Ceiling Warehouse",
+          "Temperature Controlled Warehouse",
+          "Shared Industrial Space",
+        ],
+      },
+      {
+        heading: "Industrial Land",
+        subheadings: [
+          "Land for Lease",
+          "Land for Sale",
+          "Special Economic Zone",
+        ],
+      },
     ],
   },
 
   "Resale Properties": {
-    image: "https://example.com/images/resale-properties.jpg", // Placeholder image URL
+    image: "https://res.cloudinary.com/dpizzap0w/image/upload/v1729344368/Indlay/testing_tddcri.png", // Placeholder image URL
     sections: [
       {
         heading: "Residential Properties",
@@ -60,7 +86,7 @@ export const navbarTabData = {
   },
 
   Parks: {
-    image: "https://example.com/images/parks.jpg", // Placeholder image URL
+    image: "https://res.cloudinary.com/dpizzap0w/image/upload/v1729344368/Indlay/testing_tddcri.png", // Placeholder image URL
     sections: [
       {
         heading: "Technology Parks",
@@ -78,7 +104,7 @@ export const navbarTabData = {
   },
 
   Services: {
-    image: "https://example.com/images/services.jpg", // Placeholder image URL
+    image: "https://res.cloudinary.com/dpizzap0w/image/upload/v1729344368/Indlay/testing_tddcri.png", // Placeholder image URL
     sections: [
       {
         heading: "Consulting",
@@ -107,21 +133,21 @@ export const navbarTabData = {
     ],
   },
 
-  "Contact Us": {
-    image: "https://example.com/images/contact-us.jpg", // Placeholder image URL
-    sections: [
-      {
-        heading: "Customer Support",
-        subheadings: ["24/7 Support", "Chat Support", "Email Assistance"],
-      },
-      {
-        heading: "Sales Enquiries",
-        subheadings: ["Product Information", "Pricing Queries", "Availability"],
-      },
-      {
-        heading: "Corporate Office",
-        subheadings: ["Headquarters", "Regional Offices", "Branch Locations"],
-      },
-    ],
-  },
+  // "Contact Us": {
+  //   image: "https://example.com/images/contact-us.jpg", // Placeholder image URL
+  //   sections: [
+  //     {
+  //       heading: "Customer Support",
+  //       subheadings: ["24/7 Support", "Chat Support", "Email Assistance"],
+  //     },
+  //     {
+  //       heading: "Sales Enquiries",
+  //       subheadings: ["Product Information", "Pricing Queries", "Availability"],
+  //     },
+  //     {
+  //       heading: "Corporate Office",
+  //       subheadings: ["Headquarters", "Regional Offices", "Branch Locations"],
+  //     },
+  //   ],
+  // },
 };
