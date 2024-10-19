@@ -12,6 +12,7 @@ interface ListValueData {
   name: string;
   address: string;
   isBestSeller: boolean;
+  amenities: { name: string; id: string }[];
   id: string;
 }
 
@@ -54,7 +55,7 @@ const Listing = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {showData.map((data) => (
           <VerticalProperty key={data.id} {...data} />
         ))}
