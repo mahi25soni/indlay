@@ -1,6 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Banana-grotesk";
+  src:
+    url("/public/fonts/Banana-grotesk/bold.otf") format("opentype"),
+    url("/public/fonts/Banana-grotesk/medium.otf") format("opentype"),
+    url("/public/fonts/Banana-grotesk/regular.otf") format("opentype"),
+    url("/public/fonts/Banana-grotesk/semibold.otf") format("opentype"),
+    url("/public/fonts/Banana-grotesk/thin.otf") format("opentype")
+      url("/public/fonts/Banana-grotesk/extrabold.otf") format("opentype")
+      url("/public/fonts/Banana-grotesk/extralight.otf") format("opentype"),
+    url("/public/fonts/Banana-grotesk/light.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM-Serif-Display";
+  src:
+    url("/public/fonts/DM_Serif_Display/Italic.ttf") format("truetype"),
+    url("/public/fonts/DM_Serif_Display/Regular.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Youth";
+  src:
+    url("/public/fonts/Youth/Black\ Italic.woff2") format("woff2"),
+    url("/public/fonts/Youth/Black.woff2") format("woff2"),
+    url("/public/fonts/Youth/Bold\ Italic.woff2") format("woff2"),
+    url("/public/fonts/Youth/Bold.woff2") format("woff2"),
+    url("/public/fonts/Youth/Italic.woff2") format("woff2"),
+    url("/public/fonts/Youth/Light\ Italic.woff2") format("woff2"),
+    url("/public/fonts/Youth/Light.woff2") format("woff2"),
+    url("/public/fonts/Youth/Medium\ Italic.woff2") format("woff2"),
+    url("/public/fonts/Youth/Medium.woff2") format("woff2"),
+    url("/public/fonts/Youth/Regular\ Italic.woff2") format("woff2"),
+    url("/public/fonts/Youth/Thin\ Italic.woff2") format("woff2"),
+    url("/public/fonts/Youth/Thin.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
 *,
 *::before,
 *::after {
@@ -11,31 +61,38 @@ html,
 body,
 .app,
 #root {
-  margin : 0;
-  padding : 0;
+  margin: 0;
+  padding: 0;
   height: 100%;
   width: 100%;
-  background-color:  #FBFBFB;
-  
+  background-color: #fbfbfb;
+}
+
+body {
+  font-family: "Youth", "Banana-grotesk", sans-serif , "DM-Serif-Display";
 }
 
 :root {
-  --bg-color : #FBFBFB;
-  --filtered-btn-active : #FE6240;
-  --filtered-btn-secondary : #FFFFFF;
-  --light-text : #9B9EA6;
-  --border-color : #EDF0EF;
-  --bg-bestseller : #C8FFEE;
-  
+  --bg-color: #fbfbfb;
+  --filtered-btn-active: #fe6240;
+  --filtered-btn-secondary: #ffffff;
+  --light-text: #9b9ea6;
+  --border-color: #edf0ef;
+  --bg-bestseller: #c8ffee;
 }
 
+.family-banana {
+  font-family: "Banana-grotesk";
+}
 .heading {
-  font-weight : 500;
-  font-size : 32px;
-  color : #000000;
+  font-family: "Youth" !important;
+  font-weight: bold !important;
+  font-size: 32px;
+  color: #000000;
 }
 
 .scrollbar-hidden {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
