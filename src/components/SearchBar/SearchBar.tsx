@@ -18,7 +18,7 @@ const SearchBar = ({ height, icon_size }: SearchBarProps) => {
         <input
           type="text"
           placeholder="Search by city/country"
-          className="w-full border-none bg-none outline-none"
+          className="w-full border-none bg-none outline-none pl-2"
         />
         <FaChevronDown />
       </div>
@@ -27,7 +27,7 @@ const SearchBar = ({ height, icon_size }: SearchBarProps) => {
         <input
           type="text"
           placeholder="Search by city/country"
-          className="w-full border-none bg-none outline-none"
+          className="w-full border-none bg-none outline-none pl-2"
         />
         <FaChevronDown />
       </div>

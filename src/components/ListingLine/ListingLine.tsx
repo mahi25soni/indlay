@@ -14,6 +14,7 @@ interface ListValueData {
   name: string;
   address: string;
   isBestSeller: boolean;
+  amenities : {name: string; id: string}[];
   id: string;
 }
 
