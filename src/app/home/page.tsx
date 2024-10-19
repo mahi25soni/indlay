@@ -15,7 +15,10 @@ const ListingLine = dynamic(
   () => import("@/components/ListingLine/ListingLine"),
 );
 
-const Video= dynamic(() => import("@/components/VideoComponent/VideoComponent"));
+const Video = dynamic(
+  () => import("@/components/VideoComponent/VideoComponent"),
+);
+const Footer = dynamic(() => import("@/components/Footer/Footer"));
 
 const HomePage = () => {
   return (
@@ -26,21 +29,9 @@ const HomePage = () => {
       <Collections />
       <Listing />
       <Video />
-      <AboutUs />
+      {/* <AboutUs /> */}
       <ListingLine />
-      {/*  Services */}
-      {/*  Collections */}
-      {/*  Map */}
-      {/*  Video */}
-      {/*  About */}
-      {/*  Listing */}
-      {/*  Gallery */}
-      {/*  Blog */}
-      {/*  Testimonials */}
-      {/*  Listing 2 */}
-      {/*  Trusted By Company */}
-      {/*  Banner */}
-      {/*  Footer */}
+      <Footer />
     </div>
   );
 };
