@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 
 interface HeadingAndButtonProps {
   heading: string;
+  
   children?: ReactNode; // Type for children
 }
 
