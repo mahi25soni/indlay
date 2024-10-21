@@ -33,7 +33,7 @@ const Navbar = () => {
         className={`h-[142px] border-basic px-15 ${hoveredTab ? "border-none" : "border-b"}`}
       >
         <div className="flex h-[88px] items-center justify-between">
-          <Image src="/logo.png" alt="Logo" width={118} height={48} />
+          <Image src="/logo.png" alt="Logo" width={118} height={48} priority={true} />
           <SearchBar height={56} icon_size={48} />
 
           <div className="flex h-[48px] font-normal">

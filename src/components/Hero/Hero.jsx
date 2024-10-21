@@ -60,6 +60,7 @@ const Hero = () => {
           width={1320}
           height={366}
           className="w-full"
+          priority={true}
         />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-center text-secondary max-w-[393px] h-[190px]">
           <h2 className="text-[48px] leading-[57.6px] font-normal">We help people</h2>
