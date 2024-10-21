@@ -1,18 +1,16 @@
 "use client";
 import React from 'react';
-import YouTube from 'react-youtube';
 import SingleHeading from "../atoms/SingleHeading/SingleHeading";
 
 export default function VideoComponent() {
-
-    
+  
   const videoOptions = {
     width: '1024px',
     height: '558px',
-    playerVars: {
-      autoplay: 0,
-    },
   };
+
+  // Test video URL for frontend testing
+  const testVideoUrl = "https://www.w3schools.com/html/mov_bbb.mp4"; 
 
   return (
     <div className="px-15 mt-20 w-[1024px] h-[702px] mx-auto">
@@ -27,7 +25,15 @@ export default function VideoComponent() {
             borderRadius: '24px',
           }}
         >
-          <YouTube videoId="Cus-6cnyt1s" opts={videoOptions} />
+          <video
+            width={videoOptions.width}
+            height={videoOptions.height}
+            controls
+            style={{ borderRadius: '24px' }}
+          >
+            <source src={testVideoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
