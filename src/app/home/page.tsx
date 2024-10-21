@@ -22,8 +22,7 @@ const Footer = dynamic(() => import("@/components/Footer/Footer"));
 
 const HomePage = () => {
   return (
-    <div className="relative">
-      <Navbar />
+    <>
       <Hero />
       <Services />
       <Collections />
@@ -31,8 +30,7 @@ const HomePage = () => {
       <Video />
       {/* <AboutUs /> */}
       <ListingLine />
-      <Footer />
-    </div>
+    </>
   );
 };
 

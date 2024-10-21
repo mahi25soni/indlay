@@ -29,7 +29,6 @@ const Navbar = () => {
   useEffect(() => {
     setTabs(tabData);
     setPageLoading(false);
-    console.log("tabs", tabData);
   }, []);
   return (
     !pageLoading && (
