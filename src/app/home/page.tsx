@@ -24,9 +24,8 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <Collections />
       <Services />
-      <Listing />
+      <Collections />
       <Listing />
       <Video />
       {/* <AboutUs /> */}
