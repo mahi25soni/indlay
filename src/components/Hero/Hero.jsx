@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";s
+import dynamic from "next/dynamic";
 const SearchBar = dynamic(() => import("../SearchBar/SearchBar"));
 
 const Hero = () => {

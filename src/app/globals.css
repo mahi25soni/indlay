@@ -116,7 +116,7 @@ body {
 }
 
 .text-changing {
-  animation: slide-up-down s ease-in-out infinite;
+  animation: slide-up-down 4s ease-in-out infinite;
 }
 
 
