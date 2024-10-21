@@ -28,7 +28,7 @@ const HomePage = () => {
       <Collections />
       <Listing />
       <Video />
-      {/* <AboutUs /> */}
+      <AboutUs />
       <ListingLine />
     </>
   );

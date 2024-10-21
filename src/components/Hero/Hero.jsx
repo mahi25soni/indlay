@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";s
 const SearchBar = dynamic(() => import("../SearchBar/SearchBar"));
 
 const Hero = () => {
@@ -17,7 +17,26 @@ const Hero = () => {
   useEffect(() => {
     setPopularSearches(defaultSearches);
   }, []);
-  
+
+  const words = ["Industrial Property", "Parks", "Schools", "Hospitals"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [animate, setAnimate] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Disable the animation before changing the word
+      setAnimate(false);
+
+      // Change the word after a short delay (to reset animation)
+      setTimeout(() => {
+        setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+        setAnimate(true); // Re-enable animation after word change
+      }, 100); // Delay of 100ms to reset the animation
+    }, 3000); // Change word every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [words.length]);
+
   return (
     <div className="relative mt-20 px-15">
       <div className="relative">
@@ -28,12 +47,22 @@ const Hero = () => {
           height={366}
           className="w-full"
         />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-center text-secondary max-w-[393px] h-[190px]">
-          <h2 className="text-[48px] leading-[57.6px] font-normal">We help people</h2>
-          <p className="text-[48px] leading-[57.6px] font-normal w-[371px]">get their dreams</p>
-          <p className="text-[48px] leading-[65.81px] font-normal tracking-tighter-[2%] text-primary">
-          Industrial Property
+        <div className="absolute left-1/2 top-1/2 h-[190px] max-w-[393px] -translate-x-1/2 -translate-y-1/2 transform text-center text-secondary">
+          <h2 className="text-[48px] font-normal leading-[57.6px]">
+            We help people
+          </h2>
+          <p className="w-[371px] text-[48px] font-normal leading-[57.6px]">
+            get their dreams
           </p>
+          <div className="text-wrapper">
+            <p
+              className={`tracking-tighter-[2%] text-[48px] font-normal leading-[65.81px] text-primary ${
+                animate ? "text-changing" : ""
+              }`}
+            >
+              {words[currentWordIndex]}
+            </p>
+          </div>
         </div>
       </div>
 
