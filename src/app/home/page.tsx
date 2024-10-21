@@ -1,9 +1,9 @@
 import React from "react";
 
 import dynamic from "next/dynamic";
+const Listing = dynamic(() => import("@/components/Listing/Listing"));
 const Navbar = dynamic(() => import("@/components/Navbar/Navbar"));
 const Hero = dynamic(() => import("@/components/Hero/Hero"));
-const Listing = dynamic(() => import("@/components/Listing/Listing"));
 const Services = dynamic(
   () => import("@/components/ServicesComponent/ServicesComponent"),
 );
@@ -24,8 +24,9 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <Services />
       <Collections />
+      <Services />
+      <Listing />
       <Listing />
       <Video />
       {/* <AboutUs /> */}

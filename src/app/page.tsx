@@ -7,17 +7,8 @@ const Navbar = dynamic(() => import("@/components/Navbar/Navbar"));
 export default function Home() {
   return (
     <AppWrapper>
-      <HomePageWrapper />
+      <HomePage />
     </AppWrapper>
   );
 }
 
-const HomePageWrapper = () => {
-  return (
-    <div className="relative">
-      <Navbar />
-      <HomePage />
-      <Footer />
-    </div>
-  );
-};
