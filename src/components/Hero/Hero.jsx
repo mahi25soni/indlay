@@ -17,40 +17,7 @@ const Hero = () => {
   useEffect(() => {
     setPopularSearches(defaultSearches);
   }, []);
-
-
-  const typingTexts = ["Industrial Property","Resale Property", "Parks", "Services"];
-  const [currentText, setCurrentText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0); 
-  const [typingIndex, setTypingIndex] = useState(0); 
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const handleTyping = () => {
-      if (!isDeleting) {
-        if (typingIndex < typingTexts[currentIndex].length) {
-          setCurrentText((prev) => prev + typingTexts[currentIndex].charAt(typingIndex));
-          setTypingIndex((prev) => prev + 1);
-        } else {
-          setTimeout(() => setIsDeleting(true), 2000); 
-        }
-      } else {
-        if (typingIndex > 0) {
-          setCurrentText((prev) => prev.slice(0, typingIndex - 1));
-          setTypingIndex((prev) => prev - 1);
-        } else {
-          setIsDeleting(false);
-          setCurrentIndex((prev) => (prev + 1) % typingTexts.length);
-        }
-      }
-    };
-
-    const typingSpeed = isDeleting ? 100 : 150; 
-    const timer = setTimeout(handleTyping, typingSpeed);
-
-    return () => clearTimeout(timer); 
-  }, [currentText, typingIndex, isDeleting, currentIndex, typingTexts]);
-
+  
   return (
     <div className="relative mt-20 px-15">
       <div className="relative">
@@ -60,14 +27,12 @@ const Hero = () => {
           width={1320}
           height={366}
           className="w-full"
-          priority={true}
         />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-center text-secondary max-w-[393px] h-[190px]">
           <h2 className="text-[48px] leading-[57.6px] font-normal">We help people</h2>
           <p className="text-[48px] leading-[57.6px] font-normal w-[371px]">get their dreams</p>
           <p className="text-[48px] leading-[65.81px] font-normal tracking-tighter-[2%] text-primary">
-            {currentText}
-            <span className="blinking-cursor">|</span> 
+          Industrial Property
           </p>
         </div>
       </div>
