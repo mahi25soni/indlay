@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import ConnectUsBanner from "./ConnectUsBanner";
 
 const footerRedirects: { [key: string]: string[] } = {
   Company: ["Home", "About", "Contact", "Projects"],
@@ -10,9 +11,7 @@ const footerRedirects: { [key: string]: string[] } = {
 const Footer = () => {
   return (
     <div className="mt-20 flex w-full flex-col gap-10 px-15">
-      <div className="relative h-[320px] w-full">
-        <Image src={"/footer.png"} alt="Footer Image" fill />
-      </div>
+      <ConnectUsBanner />
       <div className="flex items-start justify-between">
         <div className="">
           <Image src="/logo.png" alt="Logo" width={118} height={48} />
@@ -21,13 +20,17 @@ const Footer = () => {
             <p>Bhilwara, Rajasthan (311001)</p>
           </div>
         </div>
-        <div className="flex justify-end gap-10 ">
+        <div className="flex justify-end gap-10">
           {Object.keys(footerRedirects).map((key: string) => {
             return (
               <div>
                 <p className="text-xl font-medium">{key}</p>
                 {footerRedirects[key].map((value) => {
-                  return <p className="text-light-gray font-normal cursor-pointer">{value}</p>;
+                  return (
+                    <p className="cursor-pointer font-normal text-light-gray">
+                      {value}
+                    </p>
+                  );
                 })}
               </div>
             );
@@ -35,8 +38,8 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <div className="flex items-center justify-center text-xs text-light-gray mb-10">
-      Copyright 2024, All rights reserved
+      <div className="mb-10 flex items-center justify-center text-xs text-light-gray">
+        Copyright 2024, All rights reserved
       </div>
     </div>
   );
