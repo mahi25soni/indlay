@@ -14,7 +14,11 @@ const AboutService = dynamic(
 const About = () => {
   return (
     <div className="w-full px-15">
-      <AboutPageHero />
+      <div className="h-screen">
+        <AboutPageHero />
+
+      </div>
+
       <AboutMission />
       <AboutService />
     </div>
