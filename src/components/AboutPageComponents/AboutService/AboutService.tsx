@@ -21,7 +21,7 @@ const AboutService = () => {
   return (
     <div>
       <SingleHeading firstLine="Services we provide" secondLine="to our esteemed customers" />
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10'>
         {aboutDataList.map((service, index) => (
           <div key={index} className='w-[312px] h-[300px] rounded-[12px] border-[1.5px] border-basic bg-secondary relative'>
             <Image src={service.icon} alt={service.heading_name} width={60} height={60} className='absolute right-0 m-4' />

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const CollectionItem = () => {
   return (
-    <div className="mt-7 flex gap-4 w-full"> 
+    <div className="mt-6 flex gap-4 w-full"> 
       {/* Card 1 */}
       <div className="flex-1 gap-2 "> 
         <div className="grid w-full grid-cols-2 gap-2"> 
