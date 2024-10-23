@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { aboutSampleData } from "@/testdata/about-data";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion"; 
 import { FaRegDotCircle } from "react-icons/fa";
 
 const SingleHeading = dynamic(
