@@ -1,6 +1,7 @@
 import React from "react";
 
 import dynamic from "next/dynamic";
+
 const Listing = dynamic(() => import("@/components/Listing/Listing"));
 const Navbar = dynamic(() => import("@/components/Navbar/Navbar"));
 const Hero = dynamic(() => import("@/components/Hero/Hero"));
@@ -22,7 +23,12 @@ const Footer = dynamic(() => import("@/components/Footer/Footer"));
 const TrustedCompanies = dynamic(
   () => import("@/components/TrustedCompanies/TrustedCompanies"),
 );
-
+const Testimonials = dynamic(
+  () => import("@/components/Testimonials/Testimonials"),
+);
+const BlogSection = dynamic(
+  () => import("@/components/BlogSection/BlogSection"),
+);
 const HomePage = () => {
   return (
     <>
@@ -32,6 +38,9 @@ const HomePage = () => {
       <Listing />
       <Video />
       <AboutUs />
+      <ListingLine />
+      <BlogSection />
+      <Testimonials />
       <ListingLine />
       <TrustedCompanies />
     </>
