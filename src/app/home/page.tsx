@@ -19,6 +19,9 @@ const Video = dynamic(
   () => import("@/components/VideoComponent/VideoComponent"),
 );
 const Footer = dynamic(() => import("@/components/Footer/Footer"));
+const TrustedCompanies = dynamic(
+  () => import("@/components/TrustedCompanies/TrustedCompanies"),
+);
 
 const HomePage = () => {
   return (
@@ -30,6 +33,7 @@ const HomePage = () => {
       <Video />
       <AboutUs />
       <ListingLine />
+      <TrustedCompanies />
     </>
   );
 };
