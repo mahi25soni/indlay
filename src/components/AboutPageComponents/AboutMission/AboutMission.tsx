@@ -29,7 +29,7 @@ const AboutMission = () => {
           </p>
         </div>
         <div
-          className="h-[256px] w-[780px] text-center"
+          className="h-[256px] w-[780px] text-center leading-8 text-light-gray"
           style={{ textAlign: "justify" }}
         >
           {missionContent}
