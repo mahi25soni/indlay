@@ -1,6 +1,8 @@
 "use client";
 import React from 'react';
-import SingleHeading from "../atoms/SingleHeading/SingleHeading";
+import dynamic from 'next/dynamic';
+
+const SingleHeading = dynamic(() => import('@/components/atoms/SingleHeading/SingleHeading'));
 
 export default function VideoComponent() {
   

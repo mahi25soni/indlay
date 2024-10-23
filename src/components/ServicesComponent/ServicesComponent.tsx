@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { servicesData } from "@/testdata/service-data";
-import SingleHeading from "../atoms/SingleHeading/SingleHeading";
 const ServicesItem = dynamic(
   () => import("@/components/ServicesComponent/ServicesItem"),
+);
+const SingleHeading = dynamic(
+  () => import("@/components/atoms/SingleHeading/SingleHeading"),
 );
 
 interface ServiceData {

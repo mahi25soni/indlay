@@ -1,9 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import HeadingAndButton from "../atoms/HeadingAndButton/HeadingAndButton";
 import { GoArrowRight } from "react-icons/go";
 import { BlogSampleData } from "@/testdata/blog-data";
-import BlogItem from "./BlogItem";
+import dynamic from "next/dynamic";
+
+const BlogItem = dynamic(() => import("./BlogItem"));
+const HeadingAndButton = dynamic(
+  () => import("@/components/atoms/HeadingAndButton/HeadingAndButton"),
+);
 
 interface BlogData {
   title: string;
@@ -31,7 +35,7 @@ const BlogSection = () => {
         </div>
       </HeadingAndButton>
 
-      <div className="scrollbar-hidden flex items-center gap-5 overflow-hidden mt-10 w-full">
+      <div className="scrollbar-hidden mt-10 flex w-full items-center gap-5 overflow-hidden">
         {blogData?.map((data) => {
           return <BlogItem key={data.id} {...data} />;
         })}

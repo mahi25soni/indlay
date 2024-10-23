@@ -1,9 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
-import SingleHeading from '@/components/atoms/SingleHeading/SingleHeading';
 import React from 'react'
 import Image from 'next/image'
 import { aboutServiceData } from "@/testdata/about-service-data";
+import dynamic from "next/dynamic";
+
+const SingleHeading = dynamic(
+  () => import("@/components/atoms/SingleHeading/SingleHeading"),
+)
 
 interface AboutServiceData {
   icon: string;

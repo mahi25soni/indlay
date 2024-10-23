@@ -1,6 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import ConnectUsBanner from "./ConnectUsBanner";
+import dynamic from "next/dynamic";
+
+const ConnectUsBanner = dynamic(
+  () => import("@/components/Footer/ConnectUsBanner"),
+)
 
 const footerRedirects: { [key: string]: string[] } = {
   Company: ["Home", "About", "Contact", "Projects"],

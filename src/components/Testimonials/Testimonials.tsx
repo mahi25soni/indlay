@@ -1,10 +1,13 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import SingleHeading from "../atoms/SingleHeading/SingleHeading";
 import { TestimonialSampleData } from "@/testdata/testimonial-data";
 import Image from "next/image";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
+import dynamic from "next/dynamic";
 
+const SingleHeading = dynamic(
+  () => import("../atoms/SingleHeading/SingleHeading"),
+);
 interface TestimonialData {
   id: number;
   name: string;
@@ -71,25 +74,28 @@ const Testimonials = () => {
   return (
     <div className="mt-20 px-15">
       <SingleHeading firstLine="What people say about us" />
-      <div className="mt-10 flex items-center justify-start gap-4 overflow-hidden w-full" ref={trackScrollRef}>
+      <div
+        className="mt-10 flex w-full items-center justify-start gap-4 overflow-hidden"
+        ref={trackScrollRef}
+      >
         {testimonialData.map((data) => (
           <SingleCommment key={data.id} {...data} />
         ))}
       </div>
-      <div className="flex items-center gap-2 justify-center mt-10">
-          <button
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-basic bg-secondary"
-            onClick={handleScrollLeft}
-          >
-            <GoArrowLeft className="h-6 w-6 text-cta-darker" />
-          </button>
-          <button
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-basic bg-secondary"
-            onClick={handleScrollRight}
-          >
-            <GoArrowRight className="h-6 w-6 text-cta-darker" />
-          </button>
-        </div>
+      <div className="mt-10 flex items-center justify-center gap-2">
+        <button
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-basic bg-secondary"
+          onClick={handleScrollLeft}
+        >
+          <GoArrowLeft className="h-6 w-6 text-cta-darker" />
+        </button>
+        <button
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-basic bg-secondary"
+          onClick={handleScrollRight}
+        >
+          <GoArrowRight className="h-6 w-6 text-cta-darker" />
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import VideoComponent from "@/components/VideoComponent/VideoComponent";
 
 const AboutMission = () => {
   const [missionContent, setMissionContent] = useState("");
@@ -25,14 +24,17 @@ const AboutMission = () => {
     <div className="mt-28">
       <div className="flex justify-between">
         <div>
-          <p className="font-normal leading-[38.4px] text-[32px]">Our Mission</p>
+          <p className="text-[32px] font-normal leading-[38.4px]">
+            Our Mission
+          </p>
         </div>
-        <div className="w-[780px] h-[256px] text-center" style={{ textAlign: "justify" }}>
-          {missionContent }
+        <div
+          className="h-[256px] w-[780px] text-center"
+          style={{ textAlign: "justify" }}
+        >
+          {missionContent}
         </div>
       </div>
-
-      <VideoComponent />
     </div>
   );
 };

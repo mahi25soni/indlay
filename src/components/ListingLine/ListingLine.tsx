@@ -4,17 +4,19 @@ import { listingTestData } from "@/testdata/listing-data";
 import dynamic from "next/dynamic";
 import React, { useEffect, useRef, useState } from "react";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
-import VerticalProperty from "../Listing/VerticalProperty";
 
 const HeadingAndButton = dynamic(
   () => import("@/components/atoms/HeadingAndButton/HeadingAndButton"),
+);
+const VerticalProperty = dynamic(
+  () => import("@/components/Listing/VerticalProperty"),
 );
 
 interface ListValueData {
   name: string;
   address: string;
   isBestSeller: boolean;
-  amenities : {name: string; id: string}[];
+  amenities: { name: string; id: string }[];
   id: string;
 }
 
