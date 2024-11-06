@@ -29,6 +29,9 @@ const Testimonials = dynamic(
 const BlogSection = dynamic(
   () => import("@/components/BlogSection/BlogSection"),
 );
+const WorldMapListing = dynamic(
+  () => import("@/components/WorldMapListing/WorldMapListing"),
+);
 const HomePage = () => {
   return (
     <>
@@ -36,6 +39,7 @@ const HomePage = () => {
       <Services />
       <Collections />
       <Listing />
+      <WorldMapListing />
       <Video />
       <AboutUs />
       <ListingLine />
