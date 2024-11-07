@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: "Banana-grotesk";
   src:
     url("/public/fonts/Banana-grotesk/bold.otf") format("opentype"),
@@ -46,7 +46,7 @@
   font-weight: bold;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 
 
@@ -68,9 +68,9 @@ body,
   background-color: #fbfbfb;
 }
 
-body {
+/* body {
   font-family: "Youth", "Banana-grotesk", sans-serif , "DM-Serif-Display";
-}
+} */
 
 :root {
   --bg-color: #fbfbfb;
@@ -85,7 +85,7 @@ body {
   font-family: "Banana-grotesk";
 }
 .heading {
-  font-family: "Youth" !important;
+  /* font-family: "Youth" !important; */
   font-weight: bold !important;
   font-size: 32px;
   color: #000000;
@@ -117,6 +117,16 @@ body {
 
 .text-changing {
   animation: slide-up-down 4s ease-in-out infinite;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px; /* Adjust width as needed */
+  height: 100%;
+  background: linear-gradient(to left, #022d42 100%, rgba(2, 45, 66, 0) 0%);
+  pointer-events: none; /* Allows clicks to pass through the overlay */
 }
 
 

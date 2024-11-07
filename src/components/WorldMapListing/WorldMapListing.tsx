@@ -1,113 +1,117 @@
 "use client"
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-
-type CountryStyles = {
-  scale: string;
-  translateX: string;
-  translateY: string;
-};
-
-const countryStyles: Record<string, CountryStyles> = {
-  india: {
-    scale: 'scale-[0.75]',  // Adjust based on the world map scale
-    translateX: 'translate-x-[5%]',
-    translateY: '',
-  },
-  africa : {
-    scale: 'scale-x-[0.73] scale-y-[0.78]',
-    translateX: 'translate-x-[-1%]',
-    translateY: 'translate-y-[3%]',
-  },
-  usa: {
-    scale: 'scale-[0.72]',  // Adjust based on the world map scale
-    translateX: 'translate-x-[0]',
-    translateY: 'translate-y-[-1%]',
-  },
-
-};
+import WorldMapComponent from './WorldMapComponent';
+import HeadingAndButton from '../atoms/HeadingAndButton/HeadingAndButton';
+import { GoArrowRight } from 'react-icons/go';
+import VerticalProperty from '../Listing/VerticalProperty';
+import { MapListingSampleData } from '@/testdata/map-listing-data';
 
 
-const WorldCountryStyle : {[key: string]: string} =  {
-  "india" : "scale-[8.2] translate-x-[-155%] translate-y-[-21%] rotate-[-1deg]",
-  "africa" : "scale-x-[3.3] scale-y-[3.4] translate-x-[-6%] translate-y-[-29%] rotate-[0deg]",
-  "usa" : "scale-[4.55]  translate-x-[141%] translate-y-[3%] rotate-[-1deg]",
+const CountriesListObject: { [key: string]: string } = {
+  "india": "India",
+  "africa": "Africa",
+  "usa": "USA",
 }
 
+interface PropertiesData {
+  name: string;
+  address: string;
+  isBestSeller: boolean;
+  amenities: { name: string; id: string }[];
+  id: string;
+}
 
-const WorldMapComponent: React.FC = () => {
-  const [selectedCountry, setSelectedCountry] = useState<string>('india'); // Default to India
+interface CountryPropertiesData {
+  [key: string]: PropertiesData[];
+}
+
+const WorldMapListing = () => {
+  const [listData, setListData] = useState<CountryPropertiesData>({});
+  const [selectedCountry, setSelectedCountry] = useState<string>('india'); // 
+  const trackScrollRef = useRef<HTMLDivElement>(null);
+
+
+  useEffect(() => {
+    setListData(MapListingSampleData);
+  }, [])
+
+
+  const handleScrollRight = () => {
+    if (trackScrollRef.current) {
+      trackScrollRef.current.scrollBy({
+        left: 1000,
+        behavior: "smooth",
+      });
+    }
+  };
+  const handleScrollLeft = () => {
+    if (trackScrollRef.current) {
+      trackScrollRef.current.scrollBy({
+        left: -1000,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
-    <div className="flex flex-row items-center justify-center h-screen w-full bg-cta-darker overflow-hidden">
-      {/* Container for World Map */}
-      <div className="relative w-[70vw] h-[70vw] max-w-[660px] max-h-[660px] rounded-full overflow-hidden border border-red-900">
-        
-        {/* World Map Background */}
-        <div className={`absolute inset-0 transition-all duration-300 ease-in-out  transform ${WorldCountryStyle[selectedCountry]}`}>
-          <Image
-            src="/World Map.png"
-            fill
-            alt="World Map"
-            objectFit="contain"
-          />
-        </div>
 
-        {/* Overlay for India */}
-        <div
-          className={`absolute inset-0 ${countryStyles[selectedCountry].scale} ${countryStyles[selectedCountry].translateX} ${countryStyles[selectedCountry].translateY}`}
-        >
-          {selectedCountry === 'india' ? (
-            <Image
-              src="/India.svg"
-              fill
-              alt="India Map"
-              objectFit="contain"
-            />
-          ) : selectedCountry === 'africa' ? (
-            <Image
-              src="/Africa.svg"
-              fill
-              alt="India Map"
-              objectFit="contain"
-            />
-          ) : selectedCountry === "usa" ? (
-            <Image
-              src="/USA.svg"
-              fill
-              alt="India Map"
-              objectFit="contain"
-            />
-          ) : (
-            null
-          )}
-          
-        </div>
+    <div className="flex flex-row items-center h-[780px] w-full space-x-4 bg-cta-darker overflow-hidden py-15 justify-center mt-20 gap-5">
+      <div className='col-span-6 w-1/2 px-15'>
+
+        <WorldMapComponent country={selectedCountry} />
       </div>
-      
-      {/* Button Selector */}
-      <div className="flex flex-col space-y-4 ml-8">
-        <button
-          onClick={() => setSelectedCountry('india')}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition"
-        >
-          India
-        </button>
-        <button
-          onClick={() => setSelectedCountry('africa')}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition"
-        >
-          Africa
-        </button>
-        <button
-          onClick={() => setSelectedCountry('usa')}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition"
-        >
-          USA
-        </button>
+
+      <div className="col-span-6 w-1/2 h-full">
+        <div className="flex flex-col gap-10">
+
+
+          <div className="flex justify-between pr-15">
+            <div className=" text-[32px] leading-[38.4px] text-white font-normal">Grow your world in ours</div>
+            <div className="flex">
+              <button className="flex items-center justify-center gap-3 rounded-70 border border-basic px-3 py-2 text-base font-medium text-white">
+                <p className="text-sm">Explore all</p>
+                <GoArrowRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          <div className='flex gap-2'>
+            {Object.keys(CountriesListObject).map((element, index) => {
+              return (
+                <button key={index}
+                  className={`cursor-pointer rounded-70 border border-basic px-3 py-1 text-sm ${selectedCountry === element ? "text-secondary bg-primary border-primary" : "bg-secondary"}`}
+                  onClick={() => setSelectedCountry(element)}
+                >
+                  {CountriesListObject[element]}
+                </button>
+              );
+            })}
+          </div>
+
+          <div
+            className="relative"
+            style={{
+              background: "linear-gradient(to right, rgba(2, 45, 66, 0) 0%, #022d42 100%)",
+            }}
+            ref={trackScrollRef}
+          >
+            <div className='flex  gap-6 overflow-auto scrollbar-hidden pr-6' ref={trackScrollRef}>
+
+              {listData[selectedCountry]?.map((data) => (
+                <VerticalProperty key={data.id} {...data} />
+              ))}
+            </div>
+
+            <div className='absolute top-1/2 right-5 h-10 w-10 flex justify-center items-center rounded-full bg-white opacity-75 backdrop-blur-xl border-none' onClick={handleScrollRight}>
+              <Image src="Arrow-right-simple.svg" height={24} width={24} alt='Arrow-right-simple' />
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );
 };
 
-export default WorldMapComponent;
+export default WorldMapListing;
