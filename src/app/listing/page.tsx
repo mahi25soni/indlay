@@ -9,9 +9,9 @@ import { GoArrowRight } from "react-icons/go";
 import { listingTestData } from "@/testdata/listing-data";
 import SelectingFilters from "@/components/atoms/SelectingFilters/SelectingFilters";
 import Image from "next/image";
-import ExpandedMap from "@/components/ExpandedMap/ExpandedMap";
+import ExpandedMap from "@/components/ListingPageComponents/ExpandedMap/ExpandedMap";
+import FilterSection from "@/components/ListingPageComponents/FilterSection/FilterSection";
 
-const Filter = dynamic(() => import("@/app/listing/filter"));
 const Property = dynamic(() => import("@/app/listing/property"));
 
 const categories = [
@@ -82,14 +82,14 @@ const ListingPage = () => {
     <div>
       {/* Conditionally Render Expand Component */}
       {isExpandOpen ? (
-          <ExpandedMap  backToListing={backToListing}/>
+        <ExpandedMap backToListing={backToListing} />
       ) : <div className="flex">
         {/* Left */}
-        <div>
-          <div className="bg-secondary h-[56px] flex items-center w-[320px] p-3 border-b border-basic">
-            <p className="text-[16px] leading-[17px] font-medium">Filters</p>
+        <div className="px-5 w-[320px]">
+          <div className="bg-white h-[56px] flex items-center border-b border-basic w-full">
+            <p className="text-base  leading-[17px] font-medium">Filters</p>
           </div>
-          <Filter />
+          <FilterSection />
         </div>
 
         {/* Right */}
