@@ -14,6 +14,7 @@ interface ListValueData {
   isBestSeller: boolean;
   amenities: { name: string; id: string }[];
   id: string;
+  images?: { id: string; url: string }[];
 }
 
 interface ListData {
@@ -37,6 +38,11 @@ const Listing = () => {
     setSelectedFilter(filter);
     setShowData(listData[filter]);
   };
+
+
+  const handleAddToCompareList = (id: string) => {
+    // Add the property to the compare list
+  }
   return (
     <div className="flex flex-col gap-8 px-15 mt-20">
       <div className="flex flex-col items-center gap-4">
@@ -57,7 +63,7 @@ const Listing = () => {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {showData.map((data) => (
-          <VerticalProperty key={data.id} {...data} />
+          <VerticalProperty key={data.id} {...data} onCompareClick={handleAddToCompareList} />
         ))}
       </div>
 

@@ -54,6 +54,11 @@ const WorldMapListing = () => {
     }
   };
 
+
+  const handleAddToCompareList = (id: string) => {
+    // Add the property to the compare list
+  }
+
   return (
 
     <div className="flex flex-row items-center h-[780px] w-full space-x-4 bg-cta-darker overflow-hidden py-15 justify-center mt-20 gap-5">
@@ -99,7 +104,7 @@ const WorldMapListing = () => {
             <div className='flex  gap-6 overflow-auto scrollbar-hidden pr-6' ref={trackScrollRef}>
 
               {listData[selectedCountry]?.map((data) => (
-                <VerticalProperty key={data.id} {...data} />
+                <VerticalProperty key={data.id} {...data} onCompareClick={handleAddToCompareList} />
               ))}
             </div>
 

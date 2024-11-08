@@ -30,6 +30,7 @@ interface ListValueData {
   isBestSeller: boolean;
   amenities: { name: string; id: string }[];
   id: string;
+  images?: { id: string, url: string }[];
 }
 
 interface ListData {
@@ -42,12 +43,11 @@ const ListingPage = () => {
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [isExpandOpen, setIsExpandOpen] = useState(false);
-  const [listData, setListData] = useState<ListData>({});
-  const [showData, setShowData] = useState<ListValueData[]>([]);
+  const [listData, setListData] = useState<ListValueData[]>([]);
+  const [selectedIndividualProperty, setSelectedIndividualProperty] = useState<ListValueData>();
 
   useEffect(() => {
-    setListData(listingTestData);
-    setShowData(listingTestData["All Properties"]);
+    setListData(listingTestData["All Properties"]);
   }, []);
 
   const handleOptionChange = (option: string) => {
@@ -78,6 +78,14 @@ const ListingPage = () => {
   const backToListing = () => {
     setIsExpandOpen(false);
   };
+
+
+  const selectPropertyToCompare = (id: string) => {
+    const fProperty = listData?.find((property) => property.id === id);
+    if (fProperty !== undefined) {
+      setSelectedIndividualProperty(fProperty);
+    }
+  }
   return (
     <div>
       {/* Conditionally Render Expand Component */}
@@ -185,8 +193,8 @@ const ListingPage = () => {
               </div>
 
               <div className="scrollbar-hidden grid h-[618px] grid-cols-1 gap-6 overflow-y-auto p-2 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-                {showData.map((data) => (
-                  <VerticalProperty key={data.id} {...data} />
+                {listData?.map((data) => (
+                  <VerticalProperty key={data.id} {...data} onCompareClick={selectPropertyToCompare} />
                 ))}
               </div>
             </div>
@@ -194,7 +202,8 @@ const ListingPage = () => {
 
           </div>
           {/* Right side pop up */}
-          <IndividualProperty />
+          {selectedIndividualProperty && <IndividualProperty {...selectedIndividualProperty} />}
+
         </>
       )}
     </div>

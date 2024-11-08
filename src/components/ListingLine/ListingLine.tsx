@@ -41,6 +41,10 @@ const ListingLine = () => {
     }
   };
 
+  const handleAddToCompareList = (id: string) => {
+    // Add the property to the compare list
+  }
+
   useEffect(() => {
     setListData(listingTestData["All Properties"]);
   }, []);
@@ -65,7 +69,7 @@ const ListingLine = () => {
 
       <div className="mt-10 flex gap-5 overflow-hidden" ref={trackScrollRef}>
         {listData?.map((data) => {
-          return <VerticalProperty key={data?.id} {...data} />;
+          return <VerticalProperty key={data?.id} {...data} onCompareClick={handleAddToCompareList} />;
         })}
       </div>
     </div>
