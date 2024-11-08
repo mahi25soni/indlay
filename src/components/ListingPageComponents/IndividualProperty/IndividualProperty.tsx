@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React, { useRef, useState } from 'react'
 
-
+const tempDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"
 interface SinglePropertyInterface {
     name: string;
     address: string;
@@ -13,6 +13,7 @@ interface SinglePropertyInterface {
 
 const IndividualProperty = (data: SinglePropertyInterface) => {
     const [selectedImage, setSelectedImage] = useState<string>("")
+    const [readMoreActive, setReadMoreActive] = useState<boolean>(false)
     const scrollRef = useRef<HTMLDivElement>(null)
 
     const handleScrollRight = () => {
@@ -70,8 +71,37 @@ const IndividualProperty = (data: SinglePropertyInterface) => {
                 </div>
 
 
-                <div>
+                <div className='h-[46px] w-full flex justify-between items-start'>
+                    <div className='flex flex-col h-full justify-between'>
+                        <div className='font-medium text-xl leading-[22.4px]'>{data?.name}</div>
+                        <div className='text-light-gray font-normal leading-[15.68px]'>{data?.address}</div>
+                    </div>
+                    <div className='flex gap-3'>
+                        <div className='border border-basic bg-basic rounded-70 h-9 w-9 flex justify-center items-center'>
+                            <Image src="/Heart.svg" height={24} width={24} alt='Heart' />
+                        </div>
+                        <div className='border border-basic bg-basic rounded-70 h-9 w-9  flex justify-center items-center'>
+                            <Image src="/Share.svg" height={24} width={24} alt='Share' />
+                        </div>
+                    </div>
+                </div>
 
+                <div className='flex flex-col gap-3 w-full items-start'>
+                    <div className='h-[18px] flex justify-between items-center w-full'>
+                        <div className='flex items-center font-medium text-base leading-[17.92px]'>
+                            Description
+                        </div>
+                        <Image src="/Arrow-down-simple.svg" alt='Arrow down ' height={16} width={16} />
+
+                    </div>
+                    <div className={`${readMoreActive ? "" : "line-clamp-3"}`}>
+                        {tempDesc}
+                    </div>
+                    <button className='border-none text-[#FE6240] font-medium leading-[15.68px]' onClick={() => {
+                        setReadMoreActive(!readMoreActive)
+                    }}>
+                        {readMoreActive ? "Read Less" : "Read More"}
+                    </button>
                 </div>
             </div>
         </div>
