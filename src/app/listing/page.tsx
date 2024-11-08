@@ -7,6 +7,7 @@ import { RxCross1 } from "react-icons/rx";
 import { BsArrowsAngleExpand } from "react-icons/bs";
 import { GoArrowRight } from "react-icons/go";
 import { listingTestData } from "@/testdata/listing-data";
+import SelectingFilters from "@/components/atoms/SelectingFilters/SelectingFilters";
 
 const Filter = dynamic(() => import("@/app/listing/filter"));
 const Expand = dynamic(() => import("@/app/listing/expand"));
@@ -88,24 +89,24 @@ const ListingPage = () => {
           <div className="bg-secondary h-[56px] flex items-center p-3 border-b border-basic justify-between">
             <p className="text-[14px] leading-[15px] font-medium">Showing 20 results</p>
 
-            {/* Control Buttons */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 h-9">
               {/* Order by Dropdown */}
-              <div className="relative flex items-center text-[14px] text-gray-500 cursor-pointer">
+              <div className="relative flex items-center text-[14px] leading-[15.68px] text-light-gray cursor-pointer justify-center ">
                 <span
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   className="flex items-center"
                 >
-                  Order by:{" "}
-                  <span className="ml-1 font-normal text-[14px] leading-[15px] text-black">
+                  <span>Order by:{" "}</span>
+
+                  <span className=" text-black">
                     {orderBy}
                   </span>
                   <MdOutlineKeyboardArrowDown className="w-4 h-4 text-black" />
                 </span>
                 {isDropdownOpen && (
                   <div
-                    className="absolute top-full mt-2 bg-white p-2 z-10 min-w-[180px] w-full rounded-xl gap-3 text-[14px] leading-[15px]"
-                    style={{ boxShadow: "0px 0px 30px 0px #0000000A" }}
+                    className="absolute top-full mt-2 bg-white p-2 z-10 min-w-[180px] w-full rounded-xl gap-3 text-[14px] leading-[15px] transition-all duration-300 ease-out disolve"
+                    style={{ boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.04)" }}
                   >
                     {[
                       "Latest",
@@ -134,7 +135,7 @@ const ListingPage = () => {
               </div>
 
               {/* Categories Dropdown */}
-              <div className="relative flex items-center text-[14px]  cursor-pointer">
+              <div className="relative h-[56px] flex items-center text-[14px]  cursor-pointer">
                 <span
                   onClick={() =>
                     setIsCategoryDropdownOpen(!isCategoryDropdownOpen)
@@ -145,56 +146,7 @@ const ListingPage = () => {
                   <MdOutlineKeyboardArrowDown className="ml-1 w-4 h-4 text-black" />
                 </span>
                 {isCategoryDropdownOpen && (
-                  <div
-                    className="absolute top-full right-0  mt-2 bg-white  z-10 min-w-[480px] rounded-xl  p-2"
-                    style={{ boxShadow: "0px 0px 30px 0px #0000000A" }}
-                  >
-                    <div className=" ">
-                      <div className="flex justify-between items-start">
-                        <p className="text-[16px] font-medium mb-3">
-                          Select Categories
-                        </p>
-                        <RxCross1
-                          onClick={() => setIsCategoryDropdownOpen(false)}
-                          className="cursor-pointer text-gray-500 hover:text-black"
-                        />
-                      </div>
-                      <div className="grid grid-cols-4 gap-3 border-t border-basic p-2 ">
-                        {categories.map((category) => (
-                          <label
-                            key={category}
-                            className="flex items-center cursor-pointer"
-                          >
-                            <span
-                              onClick={() => toggleCategory(category)}
-                              className="mr-2"
-                            >
-                              {selectedCategories.includes(category) ? (
-                                <MdCheckBox className="text-[#022D42] w-[18px] h-[18px]" />
-                              ) : (
-                                <MdCheckBoxOutlineBlank className="text-basic w-[18px] h-[18px]" />
-                              )}
-                            </span>
-                            {category}
-                          </label>
-                        ))}
-                      </div>
-                      <div className="flex justify-end mt-4 gap-4 p-2">
-                        <button
-                          onClick={clearAllCategories}
-                          className="text-light-gray text-[16px] leading-[17px] font-normal"
-                        >
-                          Clear all
-                        </button>
-                        <button
-                          onClick={applyCategories}
-                          className="text-[#022D42] text-[16px] leading-[17px] font-medium"
-                        >
-                          Apply
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                 <SelectingFilters heading='Categories' id='categories' width="420px" options={categories} selectedItems={selectedCategories} selectItem={toggleCategory} clearAll={clearAllCategories} applyFilter={applyCategories} onClose={() => setIsCategoryDropdownOpen(false)} />
                 )}
               </div>
 
