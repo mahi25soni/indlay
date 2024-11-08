@@ -7,6 +7,7 @@ import { GoArrowUpRight, GoArrowDownRight } from "react-icons/go";
 import { navbarTabData } from "@/testdata/navbar-test-data";
 
 import dynamic from "next/dynamic";
+import CompareList from "../CompareList/CompareList";
 const SearchBar = dynamic(() => import("@/components/SearchBar/SearchBar"));
 interface TabData {
   image: string;
@@ -23,12 +24,14 @@ const tabData: Tabs = navbarTabData;
 const Navbar = () => {
   const [tabs, setTabs] = useState<Tabs>({});
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
+  const [openComparePopUp, setOpenComparePopUp] = useState<boolean>(false);
 
   useEffect(() => {
     setTabs(tabData);
   }, []);
   return (
     <div className="sticky top-0 z-999 bg-[--bg-color]">
+      {openComparePopUp && <CompareList onClose={() => setOpenComparePopUp(false)} />}
       <div
         className={`h-[142px] border-basic px-15 ${hoveredTab ? "border-none" : "border-b"}`}
       >
@@ -43,7 +46,9 @@ const Navbar = () => {
           <SearchBar height={56} icon_size={48} />
 
           <div className="flex h-[48px] font-normal">
-            <div className="flex items-center justify-center gap-3 px-3 text-base text-cta-darker">
+            <div className="flex items-center justify-center gap-3 px-3 text-base text-cta-darker cursor-pointer" onClick={() => {
+              setOpenComparePopUp(!openComparePopUp);
+            }}>
               <FaCodeCompare className="h-6 w-6" />
               <div>Compare</div>
             </div>
