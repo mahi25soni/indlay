@@ -29,6 +29,7 @@ interface CountryPropertiesData {
 const WorldMapListing = () => {
   const [listData, setListData] = useState<CountryPropertiesData>({});
   const [selectedCountry, setSelectedCountry] = useState<string>('india'); // 
+  const [selectedCountryData, setSelectedCountryData] = useState<PropertiesData[]>(MapListingSampleData["india"]);
   const trackScrollRef = useRef<HTMLDivElement>(null);
 
 
@@ -36,6 +37,12 @@ const WorldMapListing = () => {
     setListData(MapListingSampleData);
   }, [])
 
+
+  const handleCountryData = (country: string) => {
+    setSelectedCountry(country);
+    setSelectedCountryData(listData[selectedCountry]);
+
+  }
 
   const handleScrollRight = () => {
     if (trackScrollRef.current) {
@@ -86,7 +93,7 @@ const WorldMapListing = () => {
               return (
                 <button key={index}
                   className={`cursor-pointer rounded-70 border border-basic px-3 py-1 text-sm ${selectedCountry === element ? "text-secondary bg-primary border-primary" : "bg-secondary"}`}
-                  onClick={() => setSelectedCountry(element)}
+                  onClick={() => handleCountryData(element)}
                 >
                   {CountriesListObject[element]}
                 </button>
@@ -103,7 +110,7 @@ const WorldMapListing = () => {
           >
             <div className='flex  gap-6 overflow-auto scrollbar-hidden pr-6' ref={trackScrollRef}>
 
-              {listData[selectedCountry]?.map((data) => (
+              {selectedCountryData && selectedCountryData?.map((data) => (
                 <VerticalProperty key={data.id} {...data} onCompareClick={handleAddToCompareList} />
               ))}
             </div>
