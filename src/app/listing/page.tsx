@@ -11,8 +11,8 @@ import SelectingFilters from "@/components/atoms/SelectingFilters/SelectingFilte
 import Image from "next/image";
 import ExpandedMap from "@/components/ListingPageComponents/ExpandedMap/ExpandedMap";
 import FilterSection from "@/components/ListingPageComponents/FilterSection/FilterSection";
-
-const Property = dynamic(() => import("@/app/listing/property"));
+import VerticalProperty from "@/components/Listing/VerticalProperty";
+import IndividualProperty from "@/components/ListingPageComponents/IndividualProperty/IndividualProperty";
 
 const categories = [
   "Category 1",
@@ -59,7 +59,7 @@ const ListingPage = () => {
     setSelectedCategories((prev) =>
       prev.includes(category)
         ? prev.filter((cat) => cat !== category)
-        : [...prev, category]
+        : [...prev, category],
     );
   };
 
@@ -77,121 +77,127 @@ const ListingPage = () => {
 
   const backToListing = () => {
     setIsExpandOpen(false);
-  }
+  };
   return (
     <div>
       {/* Conditionally Render Expand Component */}
       {isExpandOpen ? (
         <ExpandedMap backToListing={backToListing} />
-      ) : <div className="flex">
-        {/* Left */}
-        <div className="px-5 w-[320px]">
-          <div className="bg-white h-[56px] flex items-center border-b border-basic w-full">
-            <p className="text-base  leading-[17px] font-medium">Filters</p>
-          </div>
-          <FilterSection />
-        </div>
-
-        {/* Right */}
-        <div className="w-full min-w-[1120px] border-l border-basic">
-          <div className="bg-secondary h-[56px] flex items-center p-3 border-b border-basic justify-between">
-            <p className="text-[14px] leading-[15px] font-medium">Showing 20 results</p>
-
-            <div className="flex items-center gap-4 h-9">
-              {/* Order by Dropdown */}
-              <div className="relative flex items-center text-[14px] leading-[15.68px] text-light-gray cursor-pointer justify-center ">
-                <span
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center gap-1"
-                >
-                  <span>Order by :</span>
-
-                  <span className=" text-black">
-                    {orderBy}
-                  </span>
-                  <MdOutlineKeyboardArrowDown className="w-4 h-4 text-black" />
-                </span>
-                {isDropdownOpen && (
-                  <div
-                    className="absolute top-full mt-2 bg-white p-2 z-10 min-w-[180px] w-full rounded-xl gap-3 text-[14px] leading-[15px] transition-all duration-300 ease-out disolve"
-                    style={{ boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.04)" }}
-                  >
-                    {[
-                      "Latest",
-                      "Mostly viewed",
-                      "Top rated",
-                      "Pricing low to high",
-                      "Pricing high to low",
-                    ].map((option) => (
-                      <label
-                        key={option}
-                        className="flex items-center p-2 text-black cursor-pointer"
-                      >
-                        <input
-                          type="radio"
-                          name="order"
-                          value={option}
-                          checked={orderBy === option}
-                          onChange={() => handleOptionChange(option)}
-                          className="mr-2 accent-black"
-                        />
-                        {option}
-                      </label>
-                    ))}
-                  </div>
-                )}
+      ) : (
+        <>
+          <div className="flex">
+            {/* Left */}
+            <div className="w-[320px] px-5">
+              <div className="flex h-[56px] w-full items-center border-b border-basic bg-white">
+                <p className="text-base font-medium leading-[17px]">Filters</p>
               </div>
-
-              {/* Categories Dropdown */}
-              <div className="relative h-[56px] flex items-center text-[14px]  cursor-pointer">
-                <div
-                  onClick={() =>
-                    setIsCategoryDropdownOpen(!isCategoryDropdownOpen)
-                  }
-                  className="flex items-center gap-4 h-16 "
-                >
-                  <div>All categories</div>
-                  <Image src="/Arrow-down-simple.svg" alt="Filter" height={16} width={16} />
-
-                </div>
-                {isCategoryDropdownOpen && (
-                  <SelectingFilters heading='Categories' id='categories' width="420px" options={categories} selectedItems={selectedCategories} selectItem={toggleCategory} clearAll={clearAllCategories} applyFilter={applyCategories} onClose={() => setIsCategoryDropdownOpen(false)} />
-                )}
-              </div>
-
-              {/* Expand Map Button */}
-              <button
-                className="flex items-center justify-center font-normal text-[14px] leading-[15px] gap-3 text-[#074A6A] border border-basic rounded-70 px-3 py-1 h-[36px] w-[143px]"
-                onClick={toggleExpand}
-              >
-                Expand Map
-                <BsArrowsAngleExpand />
-              </button>
+              <FilterSection />
             </div>
+
+            {/* Right */}
+            <div className="w-full min-w-[1120px] border-l border-basic">
+              <div className="flex h-[56px] items-center justify-between border-b border-basic bg-secondary p-3">
+                <p className="text-[14px] font-medium leading-[15px]">
+                  Showing 20 results
+                </p>
+
+                <div className="flex h-9 items-center gap-4">
+                  {/* Order by Dropdown */}
+                  <div className="relative flex cursor-pointer items-center justify-center text-[14px] leading-[15.68px] text-light-gray">
+                    <span
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="flex items-center gap-1"
+                    >
+                      <span>Order by :</span>
+
+                      <span className="text-black">{orderBy}</span>
+                      <MdOutlineKeyboardArrowDown className="h-4 w-4 text-black" />
+                    </span>
+                    {isDropdownOpen && (
+                      <div
+                        className="disolve absolute top-full z-10 mt-2 w-full min-w-[180px] gap-3 rounded-xl bg-white p-2 text-[14px] leading-[15px] transition-all duration-300 ease-out"
+                        style={{ boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.04)" }}
+                      >
+                        {[
+                          "Latest",
+                          "Mostly viewed",
+                          "Top rated",
+                          "Pricing low to high",
+                          "Pricing high to low",
+                        ].map((option) => (
+                          <label
+                            key={option}
+                            className="flex cursor-pointer items-center p-2 text-black"
+                          >
+                            <input
+                              type="radio"
+                              name="order"
+                              value={option}
+                              checked={orderBy === option}
+                              onChange={() => handleOptionChange(option)}
+                              className="mr-2 accent-black"
+                            />
+                            {option}
+                          </label>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="relative flex h-[56px] cursor-pointer items-center text-[14px]">
+                    <div
+                      onClick={() =>
+                        setIsCategoryDropdownOpen(!isCategoryDropdownOpen)
+                      }
+                      className="flex h-16 items-center gap-4"
+                    >
+                      <div>All categories</div>
+                      <Image
+                        src="/Arrow-down-simple.svg"
+                        alt="Filter"
+                        height={16}
+                        width={16}
+                      />
+                    </div>
+                    {isCategoryDropdownOpen && (
+                      <SelectingFilters
+                        heading="Categories"
+                        id="categories"
+                        width="420px"
+                        options={categories}
+                        selectedItems={selectedCategories}
+                        selectItem={toggleCategory}
+                        clearAll={clearAllCategories}
+                        applyFilter={applyCategories}
+                        onClose={() => setIsCategoryDropdownOpen(false)}
+                      />
+                    )}
+                  </div>
+
+                  <button
+                    className="flex h-[36px] w-[143px] items-center justify-center gap-3 rounded-70 border border-basic px-3 py-1 text-[14px] font-normal leading-[15px] text-[#074A6A]"
+                    onClick={toggleExpand}
+                  >
+                    Expand Map
+                    <BsArrowsAngleExpand />
+                  </button>
+                </div>
+              </div>
+
+              <div className="scrollbar-hidden grid h-[618px] grid-cols-1 gap-6 overflow-y-auto p-2 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+                {showData.map((data) => (
+                  <VerticalProperty key={data.id} {...data} />
+                ))}
+              </div>
+            </div>
+
+
           </div>
-
-
-
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-2">
-            {showData.map((data) => (
-              <Property key={data.id} {...data} />
-            ))}
-          </div>
-        </div>
-
-
-
-      </div>}
-
-
-
-
-
-
-
+          {/* Right side pop up */}
+          <IndividualProperty />
+        </>
+      )}
     </div>
-
   );
 };
 

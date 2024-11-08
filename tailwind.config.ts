@@ -20,18 +20,22 @@ const config: Config = {
         "cta-darker": "#022D42",
         secondary: "var(--filtered-btn-secondary)",
         primary: "var(--filtered-btn-active)",
-        "light-gray" : "var(--light-text)",
-        basic : "var(--border-color)",
-        bestseller : "var(--bg-bestseller)",
+        "light-gray": "var(--light-text)",
+        basic: "var(--border-color)",
+        bestseller: "var(--bg-bestseller)",
       },
       padding: {
         "15": "60px",
       },
-      zIndex : {
-        100 : "100",
-        200 : "200",
-        9999 : "9999",
-      }
+      zIndex: {
+        100: "100",
+        200: "200",
+        300: "300",
+        400: "400",
+        500: "500",
+        999: "999", // Navbar
+        1000: "1000", // Listing Individual property
+      },
     },
   },
   plugins: [],

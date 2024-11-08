@@ -28,7 +28,7 @@ const Navbar = () => {
     setTabs(tabData);
   }, []);
   return (
-    <div className="sticky top-0 z-9999 bg-[--bg-color]">
+    <div className="sticky top-0 z-999 bg-[--bg-color]">
       <div
         className={`h-[142px] border-basic px-15 ${hoveredTab ? "border-none" : "border-b"}`}
       >
@@ -50,7 +50,7 @@ const Navbar = () => {
             <div className="flex items-center justify-center gap-3 px-3 text-base text-cta-darker">
               <FaRegUserCircle className="h-6 w-6" />
               <div>Login/Signup</div>
-                
+
             </div>
           </div>
         </div>
@@ -127,9 +127,8 @@ const NavbarTab = ({
       >
         <div>{tab_name}</div>
         <div
-          className={`transform transition-transform duration-300 ease-in-out ${
-            hoveredTab === tab_name ? "rotate-90" : "rotate-0"
-          }`}
+          className={`transform transition-transform duration-300 ease-in-out ${hoveredTab === tab_name ? "rotate-90" : "rotate-0"
+            }`}
         >
           {<GoArrowUpRight />}
         </div>
