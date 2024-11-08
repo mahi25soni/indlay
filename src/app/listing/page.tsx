@@ -13,6 +13,7 @@ import ExpandedMap from "@/components/ListingPageComponents/ExpandedMap/Expanded
 import FilterSection from "@/components/ListingPageComponents/FilterSection/FilterSection";
 import VerticalProperty from "@/components/Listing/VerticalProperty";
 import IndividualProperty from "@/components/ListingPageComponents/IndividualProperty/IndividualProperty";
+import { div } from "framer-motion/client";
 
 const categories = [
   "Category 1",
@@ -86,6 +87,11 @@ const ListingPage = () => {
       setSelectedIndividualProperty(fProperty);
     }
   }
+
+  const closeSelectedProperty = () => {
+    setSelectedIndividualProperty(undefined);
+  }
+
   return (
     <div>
       {/* Conditionally Render Expand Component */}
@@ -202,7 +208,10 @@ const ListingPage = () => {
 
           </div>
           {/* Right side pop up */}
-          {selectedIndividualProperty && <IndividualProperty {...selectedIndividualProperty} />}
+          {selectedIndividualProperty && (
+
+            <IndividualProperty property={selectedIndividualProperty} onClose={closeSelectedProperty} />
+          )}
 
         </>
       )}
