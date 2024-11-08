@@ -8,9 +8,10 @@ import { BsArrowsAngleExpand } from "react-icons/bs";
 import { GoArrowRight } from "react-icons/go";
 import { listingTestData } from "@/testdata/listing-data";
 import SelectingFilters from "@/components/atoms/SelectingFilters/SelectingFilters";
+import Image from "next/image";
+import ExpandedMap from "@/components/ExpandedMap/ExpandedMap";
 
 const Filter = dynamic(() => import("@/app/listing/filter"));
-const Expand = dynamic(() => import("@/app/listing/expand"));
 const Property = dynamic(() => import("@/app/listing/property"));
 
 const categories = [
@@ -73,9 +74,16 @@ const ListingPage = () => {
   const toggleExpand = () => {
     setIsExpandOpen((prev) => !prev);
   };
+
+  const backToListing = () => {
+    setIsExpandOpen(false);
+  }
   return (
     <div>
-      <div className="flex">
+      {/* Conditionally Render Expand Component */}
+      {isExpandOpen ? (
+          <ExpandedMap  backToListing={backToListing}/>
+      ) : <div className="flex">
         {/* Left */}
         <div>
           <div className="bg-secondary h-[56px] flex items-center w-[320px] p-3 border-b border-basic">
@@ -94,9 +102,9 @@ const ListingPage = () => {
               <div className="relative flex items-center text-[14px] leading-[15.68px] text-light-gray cursor-pointer justify-center ">
                 <span
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center"
+                  className="flex items-center gap-1"
                 >
-                  <span>Order by:{" "}</span>
+                  <span>Order by :</span>
 
                   <span className=" text-black">
                     {orderBy}
@@ -136,17 +144,18 @@ const ListingPage = () => {
 
               {/* Categories Dropdown */}
               <div className="relative h-[56px] flex items-center text-[14px]  cursor-pointer">
-                <span
+                <div
                   onClick={() =>
                     setIsCategoryDropdownOpen(!isCategoryDropdownOpen)
                   }
-                  className="flex items-center"
+                  className="flex items-center gap-4 h-16 "
                 >
-                  All categories
-                  <MdOutlineKeyboardArrowDown className="ml-1 w-4 h-4 text-black" />
-                </span>
+                  <div>All categories</div>
+                  <Image src="/Arrow-down-simple.svg" alt="Filter" height={16} width={16} />
+
+                </div>
                 {isCategoryDropdownOpen && (
-                 <SelectingFilters heading='Categories' id='categories' width="420px" options={categories} selectedItems={selectedCategories} selectItem={toggleCategory} clearAll={clearAllCategories} applyFilter={applyCategories} onClose={() => setIsCategoryDropdownOpen(false)} />
+                  <SelectingFilters heading='Categories' id='categories' width="420px" options={categories} selectedItems={selectedCategories} selectItem={toggleCategory} clearAll={clearAllCategories} applyFilter={applyCategories} onClose={() => setIsCategoryDropdownOpen(false)} />
                 )}
               </div>
 
@@ -161,12 +170,7 @@ const ListingPage = () => {
             </div>
           </div>
 
-          {/* Conditionally Render Expand Component */}
-          {isExpandOpen && (
-            <div className="p-4">
-              <Expand />
-            </div>
-          )}
+
 
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-2">
@@ -178,7 +182,8 @@ const ListingPage = () => {
 
 
 
-      </div>
+      </div>}
+
 
 
 
