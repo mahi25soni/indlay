@@ -8,6 +8,8 @@ import { navbarTabData } from "@/testdata/navbar-test-data";
 
 import dynamic from "next/dynamic";
 import CompareList from "../CompareList/CompareList";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 const SearchBar = dynamic(() => import("@/components/SearchBar/SearchBar"));
 interface TabData {
   image: string;
@@ -25,6 +27,7 @@ const Navbar = () => {
   const [tabs, setTabs] = useState<Tabs>({});
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [openComparePopUp, setOpenComparePopUp] = useState<boolean>(false);
+  const router = useRouter()
 
   useEffect(() => {
     setTabs(tabData);
@@ -36,13 +39,15 @@ const Navbar = () => {
         className={`h-[142px] border-basic px-15 ${hoveredTab ? "border-none" : "border-b"}`}
       >
         <div className="flex h-[88px] items-center justify-between">
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={118}
-            height={48}
-            priority={true}
-          />
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={118}
+              height={48}
+              priority={true}
+            />
+          </Link>
           <SearchBar height={56} icon_size={48} />
 
           <div className="flex h-[48px] font-normal">
@@ -68,11 +73,13 @@ const Navbar = () => {
               setHoveredTab={setHoveredTab}
             />
           ))}
-
-          <div className="flex h-full flex-1 cursor-pointer items-center justify-between border-t-2 border-transparent transition-all duration-300 ease-in-out hover:border-cta-darker">
+          <div className="flex h-full flex-1 cursor-pointer items-center justify-between border-t-2 border-transparent transition-all duration-300 ease-in-out hover:border-cta-darker" onClick={() => router.push('/contact')}>
             <div>Contact Us</div>
             <div>{<GoArrowUpRight />}</div>
           </div>
+
+
+
         </div>
       </div>
       {hoveredTab && (

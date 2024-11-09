@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoMdAdd } from "react-icons/io";
@@ -48,13 +49,15 @@ const CompareList = (data: props) => {
               <p className="text-sm leading-[15.68xp]">Compare</p>
               <IoMdAdd className="h-5 w-5" />
             </button>
+            <Link href="/compare" onClick={data?.onClose}>
+              <button className="flex flex-1 items-center justify-center gap-3 rounded-70 border border-basic bg-basic px-3 py-2">
+                <p className="whitespace-nowrap text-sm leading-[15.68xp]">
+                  Compare the properites
+                </p>
+                <GoArrowUpRight className="h-5 w-5" />
+              </button>
+            </Link>
 
-            <button className="flex flex-1 items-center justify-center gap-3 rounded-70 border border-basic bg-basic px-3 py-2">
-              <p className="whitespace-nowrap text-sm leading-[15.68xp]">
-                Compare the properites
-              </p>
-              <GoArrowUpRight className="h-5 w-5" />
-            </button>
           </div>
         </div>
 
