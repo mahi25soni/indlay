@@ -69,18 +69,16 @@ const WorldMapListing = () => {
   return (
 
     <div className="flex flex-row items-center h-[780px] w-full space-x-4 bg-cta-darker overflow-hidden py-15 justify-center mt-20 gap-5">
-      <div className='col-span-6 w-1/2 px-15'>
+      <div className='col-span-6 w-1/2 px-15 hidden lg:block'>
 
         <WorldMapComponent country={selectedCountry} />
       </div>
 
-      <div className="col-span-6 w-1/2 h-full">
+      <div className="col-span-12 w-full lg:col-span-6 lg:w-1/2 h-full">
         <div className="flex flex-col gap-10">
-
-
-          <div className="flex justify-between pr-15">
+          <div className="flex lg:justify-between justify-center lg:pr-15 p-0">
             <div className=" text-[32px] leading-[38.4px] text-white font-normal">Grow your world in ours</div>
-            <div className="flex">
+            <div className="lg:flex hidden ">
               <button className="flex items-center justify-center gap-3 rounded-70 border border-basic px-3 py-2 text-base font-medium text-white">
                 <p className="text-sm">Explore all</p>
                 <GoArrowRight className="h-5 w-5" />
@@ -88,7 +86,7 @@ const WorldMapListing = () => {
             </div>
           </div>
 
-          <div className='flex gap-2'>
+          <div className='flex gap-2 justify-center'>
             {Object.keys(CountriesListObject).map((element, index) => {
               return (
                 <button key={index}
@@ -100,6 +98,8 @@ const WorldMapListing = () => {
               );
             })}
           </div>
+
+
 
           <div
             className="relative"
@@ -115,9 +115,16 @@ const WorldMapListing = () => {
               ))}
             </div>
 
-            <div className='absolute top-1/2 right-5 h-10 w-10 flex justify-center items-center rounded-full bg-white opacity-75 backdrop-blur-xl border-none' onClick={handleScrollRight}>
+            <div className='absolute top-1/2 right-5 h-10 w-10 lg:flex justify-center items-center rounded-full bg-white opacity-75 backdrop-blur-xl border-none hidden' onClick={handleScrollRight}>
               <Image src="Arrow-right-simple.svg" height={24} width={24} alt='Arrow-right-simple' />
             </div>
+          </div>
+
+          <div className="flex lg:hidden justify-center ">
+            <button className="flex items-center justify-center gap-3 rounded-70 border border-white px-3 py-2 text-base font-medium text-white border-opacity-25">
+              <p className="text-sm">Explore all</p>
+              <GoArrowRight className="h-5 w-5" />
+            </button>
           </div>
 
         </div>
