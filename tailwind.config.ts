@@ -8,12 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      width: {
+        mobile: "390px",
+      },
       borderColor: {
         basic: "var(--border-color)",
       },
       borderRadius: {
         "20": "20px",
         "70": "70px",
+        "1.5": "1.5px",
       },
       colors: {
         cta: "#074A6A",
