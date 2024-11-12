@@ -7,7 +7,7 @@ interface SingleHeadingProps {
 const SingleHeading = ({ firstLine, secondLine }: SingleHeadingProps) => {
   return (
     <div className="flex items-center justify-center">
-      <div className="heading text-center leading-10">
+      <div className="lg:heading mobile-heading text-center leading-[28.8px] lg:leading-10">
         <div>{firstLine}</div>
         {secondLine && <div>{secondLine}</div>}
       </div>
