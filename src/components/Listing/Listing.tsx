@@ -44,7 +44,7 @@ const Listing = () => {
     // Add the property to the compare list
   }
   return (
-    <div className="flex flex-col gap-8 lg:px-15 mt-[60px] lg:mt-20 px-5">
+    <div className="flex flex-col gap-10 lg:px-15 mt-[60px] lg:mt-20 px-5">
       <div className="flex flex-col items-center gap-4">
         <SingleHeading firstLine="Discover our finest properties" secondLine="tailored for you" />
         <div className="flex gap-2 overflow-y-auto w-full lg:w-max scrollbar-hidden">
