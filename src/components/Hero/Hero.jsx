@@ -38,7 +38,7 @@ const Hero = () => {
   }, [words.length]);
 
   return (
-    <div className="relative mt-20 px-5 lg:px-15">
+    <div className="relative mt-5 px-5 lg:px-15">
       <div className="relative hidden lg:flex">
         <Image
           src="/Hero.png"
@@ -66,12 +66,12 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative h-[400px] w-[350px] lg:hidden">
+      <div className="relative h-[400px] w-full lg:hidden">
         <Image
           src="HomePageHeroMobile.svg"
           alt="Logo"
           fill
-          className="object-cover"
+          className="object-contain"
         />
         {/* <div className="absolute left-1/2 top-1/2 h-[190px] max-w-[393px] -translate-x-1/2 -translate-y-1/2 transform text-center text-secondary">
           <h2 className="text-[48px] font-normal leading-[57.6px]">
