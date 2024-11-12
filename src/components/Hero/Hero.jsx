@@ -38,8 +38,8 @@ const Hero = () => {
   }, [words.length]);
 
   return (
-    <div className="relative mt-20 px-15">
-      <div className="relative">
+    <div className="relative mt-20 px-5">
+      <div className="relative hidden lg:flex">
         <Image
           src="/Hero.png"
           alt="Logo"
@@ -66,14 +66,40 @@ const Hero = () => {
         </div>
       </div>
 
+      <div className="relative h-[400px] w-[350px] lg:hidden">
+        <Image
+          src="HomePageHeroMobile.svg"
+          alt="Logo"
+          fill
+          className="object-cover"
+        />
+        {/* <div className="absolute left-1/2 top-1/2 h-[190px] max-w-[393px] -translate-x-1/2 -translate-y-1/2 transform text-center text-secondary">
+          <h2 className="text-[48px] font-normal leading-[57.6px]">
+            We help people
+          </h2>
+          <p className="w-[371px] text-[48px] font-normal leading-[57.6px]">
+            get their dreams
+          </p>
+          <div className="text-wrapper">
+            <p
+              className={`tracking-tighter-[2%] text-[48px] font-normal leading-[65.81px] text-primary ${
+                animate ? "text-changing" : ""
+              }`}
+            >
+              {words[currentWordIndex]}
+            </p>
+          </div>
+        </div> */}
+      </div>
+
       <div
-        className="top-1/5 absolute left-1/2 flex -translate-x-1/2 -translate-y-1/2 transform justify-center rounded-full bg-white shadow-lg"
+        className="top-1/5 absolute left-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform justify-center rounded-full bg-white shadow-lg lg:flex"
         style={{ boxShadow: "0px 4px 30px 0px rgba(0, 0, 0, 0.05)" }}
       >
         <SearchBar width={660} height={68} icon_size={60} />
       </div>
 
-      <div className="mx-auto mt-14 flex h-[28px] w-[560px] flex-wrap items-baseline justify-center gap-2 whitespace-nowrap text-xs font-normal">
+      <div className="mx-auto mt-14 hidden h-[28px] w-[560px] flex-wrap items-baseline justify-center gap-2 whitespace-nowrap text-xs font-normal lg:flex">
         <div className="">Popular Search</div>
         {popularSearches.map((search, index) => (
           <div

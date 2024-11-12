@@ -68,7 +68,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="relative flex h-[54px] items-center gap-8">
+        <div className="hidden relative lg:flex h-[54px] items-center gap-8">
           {Object.keys(tabs).map((tab_name) => (
             <NavbarTab
               key={tab_name}
