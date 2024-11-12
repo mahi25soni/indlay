@@ -25,7 +25,7 @@ const BlogSection = () => {
     setBlogData(data);
   }, []);
   return (
-    <div className="mt-20 px-5">
+    <div className="mt-20 px-5 lg:px-15">
       <HeadingAndButton heading="Why Global Expansion Matters">
         <div className="flex">
           <button className="flex items-center justify-center gap-3 rounded-70 border border-basic bg-secondary px-3 py-2 text-base font-medium text-cta-darker">

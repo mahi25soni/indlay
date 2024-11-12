@@ -36,7 +36,7 @@ const Navbar = () => {
     <div className="sticky top-0 z-999 bg-[--bg-color]">
       {openComparePopUp && <CompareList onClose={() => setOpenComparePopUp(false)} />}
       <div
-        className={`h-[68px] lg:h-[142px] border-basic lg:px-15 px-5 pt-5 pb-3 ${hoveredTab ? "border-none" : "border-b"}`}
+        className={`h-[68px] lg:h-[142px] border-basic lg:py-0 lg:px-15 px-5 pt-5 pb-3 ${hoveredTab ? "border-none" : "border-b"}`}
       >
         <div className="flex h-9 lg:h-[88px] items-center justify-between">
           <Link href="/">

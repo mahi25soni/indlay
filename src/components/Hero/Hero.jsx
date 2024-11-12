@@ -38,7 +38,7 @@ const Hero = () => {
   }, [words.length]);
 
   return (
-    <div className="relative mt-20 px-5">
+    <div className="relative mt-20 px-5 lg:px-15">
       <div className="relative hidden lg:flex">
         <Image
           src="/Hero.png"

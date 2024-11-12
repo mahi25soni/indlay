@@ -72,7 +72,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="mt-20 px-5">
+    <div className="mt-20 px-5 lg:px-15">
       <SingleHeading firstLine="What people say about us" />
       <div
         className="mt-10 flex w-full items-center justify-start gap-4 overflow-hidden"
