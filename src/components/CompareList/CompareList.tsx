@@ -9,7 +9,7 @@ interface props {
 }
 const CompareList = (data: props) => {
   return (
-    <div className="absolute right-0 top-0 z-1000 h-[828px] w-[440px] bg-white">
+    <div className="absolute right-0 top-0 z-1000 h-[828px] lg:w-[440px] w-[330px] bg-white">
       <div className="relative h-full">
         <div className="flex h-[56px] items-center border-b border-basic p-5 text-base font-medium leading-[17.92px]">
           Compare List
@@ -46,15 +46,15 @@ const CompareList = (data: props) => {
         <div className="sticky bottom-0 flex h-[72px] w-full items-center justify-end border-t border-basic bg-white">
           <div className="flex h-9 justify-end gap-3 pr-5">
             <button className="flex flex-1 items-center justify-center gap-3 rounded-70 border border-cta bg-cta px-3 py-2 text-secondary">
-              <p className="text-sm leading-[15.68xp]">Compare</p>
-              <IoMdAdd className="h-5 w-5" />
+              <p className="text-sm leading-[15.68xp]">Add more</p>
+              <IoMdAdd className="h-5 w-5 hidden lg:block" />
             </button>
             <Link href="/compare" onClick={data?.onClose}>
               <button className="flex flex-1 items-center justify-center gap-3 rounded-70 border border-basic bg-basic px-3 py-2">
                 <p className="whitespace-nowrap text-sm leading-[15.68xp]">
                   Compare the properites
                 </p>
-                <GoArrowUpRight className="h-5 w-5" />
+                <GoArrowUpRight className="h-5 w-5 hidden lg:block" />
               </button>
             </Link>
 
@@ -82,13 +82,13 @@ const ComparableItem = () => {
           className="rounded-l-2xl"
         />
       </div>
-      <div className="flex w-full items-center justify-center px-3">
-        <div className="flex h-10 w-full items-center justify-between">
-          <div className="flex h-full flex-col justify-between gap-2">
-            <div className="text-xl font-medium leading-[22.4px]">
+      <div className="flex w-full items-center justify-center lg:px-3">
+        <div className="flex lg:h-10 h-[66px] w-full items-center justify-between px-3">
+          <div className="flex h-full flex-col justify-between gap-2 ">
+            <div className="lg:text-xl font-medium lg:leading-[22.4px] text-sm leading-[15.68px]">
               Solitaire Industrial Park
             </div>
-            <div className="font-normal leading-[15.68px] text-light-gray">
+            <div className="font-normal lg:leading-[15.68px] text-light-gray lg:text-sm text-xs leading-[13.44px]">
               28B Highgate Road, London
             </div>
           </div>
