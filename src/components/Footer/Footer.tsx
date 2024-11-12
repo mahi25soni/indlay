@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import dynamic from "next/dynamic";
+import ConnectUsMobileBanner from "./ConnectUsMobileBanner";
 
 const ConnectUsBanner = dynamic(
   () => import("@/components/Footer/ConnectUsBanner"),
@@ -14,8 +15,10 @@ const footerRedirects: { [key: string]: string[] } = {
 
 const Footer = () => {
   return (
-    <div className="mt-20 flex w-full flex-col gap-10 px-15">
+    <div className="mt-20 flex w-full flex-col gap-10 lg:px-15 px-5 ">
       <ConnectUsBanner />
+
+      <ConnectUsMobileBanner />
       <div className="flex items-start justify-between">
         <div className="">
           <Image src="/logo.png" alt="Logo" width={118} height={48} />

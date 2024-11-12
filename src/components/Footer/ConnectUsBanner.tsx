@@ -5,7 +5,7 @@ import { GoArrowRight } from "react-icons/go";
 
 const ConnectUsBanner = () => {
   return (
-    <div className="relative flex h-[320px] w-full items-center rounded-20 bg-cta-darker">
+    <div className="relative lg:flex h-[320px] w-full items-center rounded-20 bg-cta-darker hidden">
       {/* Left Side - Image */}
       <div className="relative h-full w-full">
         <Image
