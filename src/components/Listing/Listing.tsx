@@ -44,14 +44,14 @@ const Listing = () => {
     // Add the property to the compare list
   }
   return (
-    <div className="flex flex-col gap-8 px-15 mt-20">
+    <div className="flex flex-col gap-8 lg:px-15 mt-20 px-5">
       <div className="flex flex-col items-center gap-4">
         <SingleHeading firstLine="Discover our finest properties" secondLine="tailored for you" />
-        <div className="flex gap-2">
+        <div className="flex gap-2 overflow-y-auto w-full lg:w-max scrollbar-hidden">
           {Object.keys(listData).map((filter) => {
             return (
               <div
-                className={`cursor-pointer rounded-70 border border-basic px-3 py-1 text-sm ${selectedFilter === filter ? "text-secondary bg-primary" : "bg-secondary"}`}
+                className={`cursor-pointer rounded-70 border border-basic px-3 whitespace-nowrap  py-1 text-sm leading-[15.68px] ${selectedFilter === filter ? "text-secondary bg-primary" : "bg-secondary"}`}
                 onClick={() => handleSelectFilter(filter)}
               >
                 {filter}
@@ -61,7 +61,7 @@ const Listing = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="flex w-full gap-4 overflow-y-auto scrollbar-hidden sm:grid sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:grid ">
         {showData.map((data) => (
           <VerticalProperty key={data.id} {...data} onCompareClick={handleAddToCompareList} />
         ))}
