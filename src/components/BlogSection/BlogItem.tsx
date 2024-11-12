@@ -24,7 +24,7 @@ const BlogItem = (data: BlogItemProp) => {
           <div className="line-clamp-3 text-base font-medium">
             {data?.title}
           </div>
-          <div className="line-clamp-5 text-sm font-normal leading-4 text-light-gray">
+          <div className="line-clamp-5 text-sm font-normal leading-[15.68px] text-light-gray">
             {data?.content}
           </div>
         </div>
