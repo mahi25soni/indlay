@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import CompareList from "../CompareList/CompareList";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import TabsMobileView from "./TabsMobileView";
 const SearchBar = dynamic(() => import("@/components/SearchBar/SearchBar"));
 interface TabData {
   image: string;
@@ -27,6 +28,7 @@ const Navbar = () => {
   const [tabs, setTabs] = useState<Tabs>({});
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [openComparePopUp, setOpenComparePopUp] = useState<boolean>(false);
+  const [openSideTabBar, setOpenSideTabBar] = useState<boolean>(false);
   const router = useRouter()
 
   useEffect(() => {
@@ -35,6 +37,7 @@ const Navbar = () => {
   return (
     <div className="sticky top-0 z-999 bg-[--bg-color]">
       {openComparePopUp && <CompareList onClose={() => setOpenComparePopUp(false)} />}
+      {openSideTabBar && <TabsMobileView onClose={() => setOpenSideTabBar(false)} />}
       <div
         className={`h-[68px] lg:h-[142px] border-basic lg:py-0 lg:px-15 px-5 pt-5 pb-3 ${hoveredTab ? "border-none" : "border-b"}`}
       >
@@ -61,7 +64,7 @@ const Navbar = () => {
               <FaCodeCompare className="lg:h-6 lg:w-6 h-5 w-5" />
               <div className="hidden lg:block">Compare</div>
             </div>
-            <div className="w-9 lg:w-full flex items-center justify-center lg:gap-3 lg:px-3 text-base text-cta-darker bg-basic lg:bg-transparent rounded-full lg:rounded-none cursor-pointer">
+            <div className="w-9 lg:w-full flex items-center justify-center lg:gap-3 lg:px-3 text-base text-cta-darker bg-basic lg:bg-transparent rounded-full lg:rounded-none cursor-pointer" onClick={() => setOpenSideTabBar(!openSideTabBar)}>
               <FaRegUserCircle className="lg:h-6 lg:w-6 h-5 w-5" />
               <div className="hidden lg:block">Login/Signup</div>
 
