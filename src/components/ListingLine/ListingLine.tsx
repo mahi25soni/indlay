@@ -49,7 +49,7 @@ const ListingLine = () => {
     setListData(listingTestData["All Properties"]);
   }, []);
   return (
-    <div className="mt-20 px-5 lg:px-15">
+    <div className="mt-[60px] lg:mt-20 px-5 lg:px-15">
       <HeadingAndButton heading="List Name 2">
         <div className="flex items-center gap-2">
           <button

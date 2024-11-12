@@ -15,7 +15,7 @@ const footerRedirects: { [key: string]: string[] } = {
 
 const Footer = () => {
   return (
-    <div className="mt-20 flex w-full flex-col gap-10 lg:px-15 px-5 ">
+    <div className="mt-[60px] lg:mt-20 flex w-full flex-col gap-10 lg:px-15 px-5 ">
       <ConnectUsBanner />
 
       <ConnectUsMobileBanner />

@@ -80,7 +80,7 @@ const Testimonials = () => {
 
 
   return (
-    <div className="mt-20 lg:pl-15 px-5 lg:pr-0">
+    <div className="mt-[60px] lg:mt-20 lg:pl-15 px-5 lg:pr-0">
       <SingleHeading firstLine="What people say about us" />
       <div
         className="mt-10 flex w-full items-center justify-start  overflow-hidden lg:gap-4 sm:gap-3"

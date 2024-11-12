@@ -67,7 +67,7 @@ const AboutUs = () => {
   }, [isIntersecting]);
 
   return (
-    <div className="mt-20 flex w-full flex-col gap-10 lg:gap-[60px] px-5 lg:px-15" ref={sectionRef}>
+    <div className="mt-[60px] lg:mt-20 flex w-full flex-col gap-10 lg:gap-[60px] px-5 lg:px-15" ref={sectionRef}>
       <div className="w-full flex gap-4 flex-col lg:gap-6">
 
         <SingleHeading firstLine="Why people choose us?" />

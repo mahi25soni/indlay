@@ -9,7 +9,7 @@ const HeadingAndButton = dynamic(
 
 const Collections = () => {
   return (
-    <div className="mt-20 px-5 lg:px-15">
+    <div className="mt-[60px] px-5 lg:mt-20 lg:px-15">
       <HeadingAndButton heading="Explore Our Collections">
         <div className="flex">
           <button className="flex items-center justify-center gap-3 rounded-70 border border-basic bg-secondary px-3 py-2 text-base font-medium text-cta-darker">

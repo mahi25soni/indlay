@@ -20,7 +20,7 @@ export default function VideoComponent() {
   const testVideoUrl = "https://www.w3schools.com/html/mov_bbb.mp4";
 
   return (
-    <div className="px-5 lg:px-15 mt-20 h-auto">
+    <div className="px-5 lg:px-15 mt-[60px] lg:mt-20 h-auto">
       <SingleHeading firstLine="Learn how to easily navigate" secondLine="our website step-by-step" />
 
       <div className="mt-10 flex justify-center w-full">

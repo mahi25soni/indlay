@@ -68,7 +68,7 @@ const WorldMapListing = () => {
 
   return (
 
-    <div className="flex flex-row items-center h-[780px] w-full space-x-4 bg-cta-darker overflow-hidden py-15 justify-center mt-20 gap-5">
+    <div className="flex flex-row items-center h-[780px] w-full space-x-4 bg-cta-darker overflow-hidden py-15 justify-center mt-[60px] lg:mt-20 gap-5">
       <div className='col-span-6 w-1/2 px-15 hidden lg:block'>
 
         <WorldMapComponent country={selectedCountry} />
