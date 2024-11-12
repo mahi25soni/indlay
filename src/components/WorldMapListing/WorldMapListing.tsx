@@ -68,7 +68,7 @@ const WorldMapListing = () => {
 
   return (
 
-    <div className="flex flex-row items-center h-[780px] w-full space-x-4 bg-cta-darker overflow-hidden py-15 justify-center mt-[60px] lg:mt-20 gap-5">
+    <div className="flex flex-row items-center lg:h-[780px] h-[713px] w-full lg:space-x-4 bg-cta-darker overflow-hidden lg:py-15 py-10 justify-center mt-[60px] lg:mt-20 gap-5 px-5 lg:px-0">
       <div className='col-span-6 w-1/2 px-15 hidden lg:block'>
 
         <WorldMapComponent country={selectedCountry} />
@@ -86,7 +86,7 @@ const WorldMapListing = () => {
             </div>
           </div>
 
-          <div className='flex gap-2 justify-center'>
+          <div className='flex gap-2 justify-center lg:justify-start'>
             {Object.keys(CountriesListObject).map((element, index) => {
               return (
                 <button key={index}
@@ -108,7 +108,7 @@ const WorldMapListing = () => {
             }}
             ref={trackScrollRef}
           >
-            <div className='flex  gap-6 overflow-auto scrollbar-hidden pr-6' ref={trackScrollRef}>
+            <div className='flex  gap-6 overflow-auto scrollbar-hidden lg:pr-6' ref={trackScrollRef}>
 
               {selectedCountryData && selectedCountryData?.map((data) => (
                 <VerticalProperty key={data.id} {...data} onCompareClick={handleAddToCompareList} />
