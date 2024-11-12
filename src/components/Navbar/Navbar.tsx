@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { FaCodeCompare } from "react-icons/fa6";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaRegUserCircle, FaSearch } from "react-icons/fa";
 import { GoArrowUpRight, GoArrowDownRight } from "react-icons/go";
 import { navbarTabData } from "@/testdata/navbar-test-data";
 
@@ -36,9 +36,9 @@ const Navbar = () => {
     <div className="sticky top-0 z-999 bg-[--bg-color]">
       {openComparePopUp && <CompareList onClose={() => setOpenComparePopUp(false)} />}
       <div
-        className={`h-[142px] border-basic px-15 ${hoveredTab ? "border-none" : "border-b"}`}
+        className={`h-[68px] lg:h-[142px] border-basic lg:px-15 px-5 pt-5 pb-3 ${hoveredTab ? "border-none" : "border-b"}`}
       >
-        <div className="flex h-[88px] items-center justify-between">
+        <div className="flex h-9 lg:h-[88px] items-center justify-between">
           <Link href="/">
             <Image
               src="/logo.png"
@@ -50,16 +50,20 @@ const Navbar = () => {
           </Link>
           <SearchBar height={56} icon_size={48} />
 
-          <div className="flex h-[48px] font-normal">
-            <div className="flex items-center justify-center gap-3 px-3 text-base text-cta-darker cursor-pointer" onClick={() => {
+          <div className="flex h-9 lg:h-[88px]   font-normal gap-2 lg:gap-0">
+            <div className="lg:hidden w-9 lg:w-full flex items-center justify-center lg:gap-3 lg:px-3 text-base text-cta-darker bg-basic lg:bg-transparent rounded-full lg:rounded-none cursor-pointer">
+              <FaSearch className="lg:h-6 lg:w-6 h-5 w-5" />
+            </div>
+
+            <div className="w-9 lg:w-full flex items-center justify-center lg:gap-3 lg:px-3 text-base text-cta-darker bg-basic lg:bg-transparent rounded-full lg:rounded-none cursor-pointer" onClick={() => {
               setOpenComparePopUp(!openComparePopUp);
             }}>
-              <FaCodeCompare className="h-6 w-6" />
-              <div>Compare</div>
+              <FaCodeCompare className="lg:h-6 lg:w-6 h-5 w-5" />
+              <div className="hidden lg:block">Compare</div>
             </div>
-            <div className="flex items-center justify-center gap-3 px-3 text-base text-cta-darker">
-              <FaRegUserCircle className="h-6 w-6" />
-              <div>Login/Signup</div>
+            <div className="w-9 lg:w-full flex items-center justify-center lg:gap-3 lg:px-3 text-base text-cta-darker bg-basic lg:bg-transparent rounded-full lg:rounded-none cursor-pointer">
+              <FaRegUserCircle className="lg:h-6 lg:w-6 h-5 w-5" />
+              <div className="hidden lg:block">Login/Signup</div>
 
             </div>
           </div>

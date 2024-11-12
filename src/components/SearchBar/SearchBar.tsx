@@ -11,14 +11,14 @@ export interface SearchBarProps {
 const SearchBar = ({ height, icon_size }: SearchBarProps) => {
   return (
     <div
-      className="flex w-[660px] items-center justify-start rounded-[120px] border border-basic pl-3"
+      className="hidden w-[660px] items-center justify-start rounded-[120px] border border-basic pl-3 lg:flex"
       style={{ height: `${height}px` }} // Apply height dynamically
     >
       <div className="flex h-full w-[274px] items-center justify-start gap-2">
         <input
           type="text"
           placeholder="Search by city/country"
-          className="w-full border-none bg-none outline-none pl-2"
+          className="w-full border-none bg-none pl-2 outline-none"
         />
         <FaChevronDown />
       </div>
@@ -27,7 +27,7 @@ const SearchBar = ({ height, icon_size }: SearchBarProps) => {
         <input
           type="text"
           placeholder="Search by city/country"
-          className="w-full border-none bg-none outline-none pl-2"
+          className="w-full border-none bg-none pl-2 outline-none"
         />
         <FaChevronDown />
       </div>
