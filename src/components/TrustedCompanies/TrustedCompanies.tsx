@@ -13,7 +13,7 @@ const data: string[] = trustedCompaniesTestData;
 
 const TrustedCompanies = () => {
   return (
-    <div className="flex h-[420px] flex-col justify-center gap-[60px] px-15">
+    <div className="flex lg:h-[420px] h-[272px] flex-col justify-center lg:gap-[60px] gap-10 lg:px-15 px-5">
       <SingleHeading firstLine="Trusted by great companies" />
 
       <div className="flex h-[83px] w-full items-center gap-[60px] overflow-hidden">
