@@ -10,7 +10,7 @@ type BlogItemProp = {
 
 const BlogItem = (data: BlogItemProp) => {
   return (
-    <div className="h-[397px] w-[312px] rounded-20 border border-basic flex-grow">
+    <div className="h-[397px] min-w-[312px] rounded-20 border border-basic flex-grow">
       <div className="relative min-h-[180px]">
         <Image
           src={data?.title_image}

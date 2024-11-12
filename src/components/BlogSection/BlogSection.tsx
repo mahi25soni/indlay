@@ -35,10 +35,17 @@ const BlogSection = () => {
         </div>
       </HeadingAndButton>
 
-      <div className="scrollbar-hidden mt-10 flex w-full items-center gap-5 overflow-hidden">
+      <div className="scrollbar-hidden mt-10 flex w-full items-center gap-5 lg:overflow-hidden overflow-y-auto scrollbar-hidden">
         {blogData?.map((data) => {
           return <BlogItem key={data.id} {...data} />;
         })}
+      </div>
+
+      <div className="lg:hidden flex items-center justify-center mt-10">
+        <button className="bg-secondary flex items-center justify-center gap-3 rounded-70 border border-basic px-3 py-2 text-base font-medium text-cta-darker">
+          <p className="text-sm">View all</p>
+          <GoArrowRight className="h-5 w-5" />
+        </button>
       </div>
     </div>
   );
