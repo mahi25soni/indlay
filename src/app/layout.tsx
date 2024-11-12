@@ -18,10 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={"relative"}>
-        <Navbar />
-        {children}
-        <Footer />
+      <body>
+        <div className="relative overflow-visible">
+
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
