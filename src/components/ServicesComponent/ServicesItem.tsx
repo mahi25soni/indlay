@@ -10,7 +10,7 @@ interface ServiceItemProp {
 
 const ServicesItem = (data: ServiceItemProp) => {
   return (
-    <div className="flex min-h-[180px] min-w-[166px] flex-col justify-between rounded-[12px] border border-basic bg-secondary">
+    <div className="flex min-h-[180px] min-w-[168px] flex-col justify-between border-1.5 rounded-[12px] lg:border border-basic bg-secondary">
       <div className="ml-3 mt-3">
         <Image src={data?.icon} alt="Services" width={48} height={48} />
       </div>

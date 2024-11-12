@@ -21,7 +21,7 @@ const ServicesComponent = () => {
     setServiceDataList(servicesData);
   }, []);
   return (
-    <div className="px-15 mt-20">
+    <div className="px-5 mt-20">
       <SingleHeading firstLine="Navigate seamlessly with our" secondLine="exclusive services" />
 
 
