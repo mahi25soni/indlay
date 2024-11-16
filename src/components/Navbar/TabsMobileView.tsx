@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoMdAdd } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import OverLay from "../atoms/OverLay";
 
 interface TabData {
     image: string;
@@ -39,71 +40,73 @@ const TabsMobileView = (data: props) => {
     }
 
     return (
-        <div className="absolute right-0 top-0 z-1000 h-[828px] w-[330px] bg-white">
-            <div className="relative h-full">
-                <div className="flex h-[56px] items-center justify-end border-b border-basic p-5 text-base font-medium leading-[17.92px]">
-                    <RxCross2 className="w-6 h-6" onClick={data?.onClose} />
-                </div>
-                <div className="scrollbar-hidden flex h-[700px] flex-col gap-3 overflow-auto p-5">
-                    {Object.keys(tabs).map((tab_name, index) => {
-                        return (
-                            <div>
-                                <div
-                                    className={`justify-between flex h-[42px] items-center border-b  border-basic w-full ${selectedTab === tab_name ? "border-transparent" : "borber-basic"}`}
-                                    onClick={() => handleTabSelection(tab_name)}
-                                >
-                                    <div className="text-base font-medium leading-[17.92px]">
-                                        {tab_name}
-                                    </div>
+        <OverLay >
+            <div className="absolute right-0 top-0 z-1000 h-screen w-[330px] bg-white">
+                <div className="relative h-full">
+                    <div className="flex h-[56px] items-center justify-end border-b border-basic p-5 text-base font-medium leading-[17.92px]">
+                        <RxCross2 className="w-6 h-6" onClick={data?.onClose} />
+                    </div>
+                    <div className="scrollbar-hidden flex h-full flex-col gap-3 overflow-auto p-5">
+                        {Object.keys(tabs).map((tab_name, index) => {
+                            return (
+                                <div>
                                     <div
-                                        className={`transform transition-transform duration-300 ease-in-out ${selectedTab === tab_name ? "rotate-90" : "rotate-0"
-                                            }`}
+                                        className={`justify-between flex h-[42px] items-center border-b  border-basic w-full ${selectedTab === tab_name ? "border-transparent" : "borber-basic"}`}
+                                        onClick={() => handleTabSelection(tab_name)}
                                     >
-                                        <GoArrowUpRight className="h-4 w-4" />
+                                        <div className="text-base font-medium leading-[17.92px]">
+                                            {tab_name}
+                                        </div>
+                                        <div
+                                            className={`transform transition-transform duration-300 ease-in-out ${selectedTab === tab_name ? "rotate-90" : "rotate-0"
+                                                }`}
+                                        >
+                                            <GoArrowUpRight className="h-4 w-4" />
+                                        </div>
                                     </div>
-                                </div>
-                                {selectedTab === tab_name && (
-                                    <div className="flex w-full flex-col items-start gap-3">
-                                        {tabs[tab_name].sections.map((section, index) => {
-                                            return (
-                                                <div className="flex w-full flex-col gap-1">
-                                                    <div className="mb-1 text-sm font-normal leading-[15.68px]">
-                                                        {section.heading}
+                                    {selectedTab === tab_name && (
+                                        <div className="flex w-full flex-col items-start gap-3">
+                                            {tabs[tab_name].sections.map((section, index) => {
+                                                return (
+                                                    <div className="flex w-full flex-col gap-1">
+                                                        <div className="mb-1 text-sm font-normal leading-[15.68px]">
+                                                            {section.heading}
+                                                        </div>
+                                                        {section.subheadings.map((subheading, index) => {
+                                                            return (
+                                                                <div className="text-sm font-normal leading-[15.68px] text-[#72798A]">
+                                                                    {subheading}
+                                                                </div>
+                                                            );
+                                                        })}
                                                     </div>
-                                                    {section.subheadings.map((subheading, index) => {
-                                                        return (
-                                                            <div className="text-sm font-normal leading-[15.68px] text-[#72798A]">
-                                                                {subheading}
-                                                            </div>
-                                                        );
-                                                    })}
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
 
-                <div
-                    className="absolute left-[-60px] top-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-cta text-white"
-                    style={{
-                        boxShadow: "0px 0 30px rgba(2, 45, 66, 0.75)",
-                    }}
-                    onClick={data?.onClose}
-                >
-                    <Image
-                        src="/close.svg"
-                        height={24}
-                        width={24}
-                        alt="Arrow-left"
-                        className="text-white"
-                    />
+                    <div
+                        className="absolute left-[-60px] top-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-cta text-white"
+                        style={{
+                            boxShadow: "0px 0 30px rgba(2, 45, 66, 0.75)",
+                        }}
+                        onClick={data?.onClose}
+                    >
+                        <Image
+                            src="/close.svg"
+                            height={24}
+                            width={24}
+                            alt="Arrow-left"
+                            className="text-white"
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
+        </OverLay>
     );
 };
 
