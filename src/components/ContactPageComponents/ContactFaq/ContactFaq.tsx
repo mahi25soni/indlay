@@ -33,15 +33,14 @@ const ContactFaq: React.FC = () => {
     <div className="flex flex-col items-center justify-center">
       <div className="px-15 mt-16 text-center">
         <div className="mx-auto flex flex-col items-center">
-          <p className="font-medium text-[32px] leading-[38.4px]">Frequently Asked Questions</p>
-          <div className="w-[492px] flex justify-center gap-2 mt-4">
+          <p className="font-medium text-[24px] md:text-[32px] leading-[28.8px] md:leading-[38.4px]">Frequently Asked Questions</p>
+          <div className="w-full  flex justify-center gap-2 mt-4 lg:overflow-hidden overflow-y-auto scrollbar-hidden">
             {faqItems.map((item) => (
               <p
                 key={item.category}
                 onClick={() => handleCategoryChange(item.category)}
-                className={`cursor-pointer rounded-70 px-3 py-1 text-sm border ${
-                  selectedCategory === item.category ? "bg-primary border-basic" : "border-basic"
-                }`}
+                className={`cursor-pointer rounded-70 px-3 py-1 whitespace-nowrap text-sm border ${selectedCategory === item.category ? "bg-primary border-basic" : "border-basic" 
+                  }`}
               >
                 {item.category}
               </p>
@@ -50,34 +49,33 @@ const ContactFaq: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-[870px] mt-6 gap-6">
+      <div className="w-[350px] lg:w-[870px] mt-6 gap-6">
         {filteredQuestions.map((item, index) => (
           <div
             key={index}
-            className={`w-[869px] rounded-2xl transition-all duration-300 ${
-              openIndex === index ? "bg-white shadow-sm" : "border-b "
-            }`}
+            className={`w-[350px] lg:w-[869px] rounded-2xl transition-all duration-300 ${openIndex === index ? "bg-white shadow-sm" : "border-b "
+              }`}
           >
             <button
-              className="flex justify-between items-center p-4 rounded-2xl w-full cursor-pointer focus:outline-none"
+              className="flex justify-between items-center p-2 lg:p-4 rounded-2xl w-full cursor-pointer focus:outline-none"
               onClick={() => toggleOpen(index)}
               aria-expanded={openIndex === index}
               aria-controls={`faq-answer-${index}`}
             >
-              <h2 className="text-[20px] leading-[22px] font-medium">{item.question}</h2>
+              <h2 className="text-[16px] lg:text-[20px] leading-[17.92px] lg:leading-[22px] font-medium ">{item.question}</h2>
               {openIndex === index ? (
-                <CiCircleMinus className="text-gray-500 w-8 h-8" />
+                <CiCircleMinus className="text-gray-500 lg:w-8 lg:h-8 w-6 h-6" />
               ) : (
-                <IoAddCircleOutline className="text-gray-500 w-8 h-8" />
+                <IoAddCircleOutline className="text-gray-500 lg:w-8 lg:h-8 w-6 h-6" />
               )}
             </button>
 
             {openIndex === index && (
               <div
                 id={`faq-answer-${index}`}
-                className="px-4 pb-4 transition-opacity duration-300 ease-in-out"
+                className="px-2 pb-4 transition-opacity duration-300 ease-in-out"
               >
-                <p className="text-gray-600">{item.answer}</p>
+                <p className="text-gray-600 text-[14px] lg:text-[16px] leading-[15.68px] lg:leading-[17.92px]">{item.answer}</p>
               </div>
             )}
           </div>
