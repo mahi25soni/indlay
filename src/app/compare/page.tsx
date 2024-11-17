@@ -22,6 +22,10 @@ interface CompareListItem {
     category: string;
     details: string;
     images?: { id: string, url: string }[];
+    coordinates: {
+        lat: number,
+        lng: number
+    }
 }
 
 const ComparePage = () => {

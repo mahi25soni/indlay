@@ -1,3 +1,4 @@
+"use client";
 import BrownLine from "@/components/atoms/BrownLine";
 import OverLay from "@/components/atoms/OverLay";
 import { nameToListingIcon } from "@/testdata/listing-data";
@@ -5,9 +6,16 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { FiPhoneCall } from "react-icons/fi";
 import { IoMdAdd } from "react-icons/io";
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const tempDesc =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,";
+
+const containerStyle = {
+    width: '100%',
+    height: '674px'
+};
+
 interface SinglePropertyInterface {
     name: string;
     address: string;
@@ -23,6 +31,10 @@ interface SinglePropertyInterface {
     price: string;
     category: string;
     details: string;
+    coordinates: {
+        lat: number,
+        lng: number
+    }
 }
 
 interface props {
@@ -190,7 +202,7 @@ const IndividualProperty = (data: props) => {
                             <div className='flex items-center font-medium text-xl leading-[22.4px]'>
                                 Locations
                             </div>
-                            <Image src={"/IndiviualMap.svg"} height={674} width={946} alt='Individual Map' />
+                            <PropertyLocation {...data?.property?.coordinates} />
                         </div>
                     </div>
                     <div className="flex w-[350px] h-max flex-col gap-5 rounded-2xl border border-basic px-4 py-5 sticky top-0 ">
@@ -302,6 +314,22 @@ const DetailsInfo = ({ label, value }: { label: string, value: string }) => {
                 {value}
             </div>
         </div>
+    )
+}
+
+
+const PropertyLocation = (data: { lat: number, lng: number }) => {
+    const apiKey = "AIzaSyAaStiuLK-4UnoppS7ZcEqNnuE10Lpanvo";
+    return (
+        <LoadScript googleMapsApiKey={apiKey}>
+            <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={data}
+                zoom={10}
+            >
+                <Marker position={data} />
+            </GoogleMap>
+        </LoadScript>
     )
 }
 

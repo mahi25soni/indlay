@@ -30,6 +30,7 @@ export const CompareListSampleData = [
     price: "Rs. 4cr - Rs. 6cr",
     category: "Office Space",
     details: "2kms from airport | 3km from hospital",
+    coordinates: { lat: 28.6139, lng: 77.209 }, // Delhi
   },
   {
     name: "Tech Hub",
@@ -62,6 +63,10 @@ export const CompareListSampleData = [
     price: "Rs. 5cr - Rs. 7cr",
     category: "Co-working Space",
     details: "1km from metro station | 5km from downtown",
+    coordinates: {
+      lat: 19.076,
+      lng: 72.8777,
+    },
   },
   {
     name: "Green Valley Apartments",
@@ -93,6 +98,10 @@ export const CompareListSampleData = [
     price: "Rs. 3cr - Rs. 5cr",
     category: "Apartment",
     details: "Nearby park | 4km from city center",
+    coordinates: {
+      lat: 22.5726,
+      lng: 88.3639,
+    },
   },
   {
     name: "Urban Plaza",
@@ -124,6 +133,10 @@ export const CompareListSampleData = [
     price: "Rs. 6cr - Rs. 8cr",
     category: "Shopping Complex",
     details: "Close to subway | High foot traffic area",
+    coordinates: {
+      lat: 13.0827,
+      lng: 80.2778,
+    },
   },
   {
     name: "Infosys Park",
@@ -156,6 +169,10 @@ export const CompareListSampleData = [
     price: "Rs. 4cr - Rs. 6cr",
     category: "Office Space",
     details: "2kms from airport | 3km from hospital",
+    coordinates: {
+      lat: 12.9716,
+      lng: 77.5946,
+    },
   },
   {
     name: "Tech Hub",
@@ -188,6 +205,10 @@ export const CompareListSampleData = [
     price: "Rs. 5cr - Rs. 7cr",
     category: "Co-working Space",
     details: "1km from metro station | 5km from downtown",
+    coordinates: {
+      lat: 17.385,
+      lng: 78.4867,
+    },
   },
   {
     name: "Harbor View Condos",
@@ -219,6 +240,10 @@ export const CompareListSampleData = [
     price: "Rs. 10cr - Rs. 15cr",
     category: "Condominium",
     details: "Beach access | 3km from marina",
+    coordinates: {
+      lat: 23.0222,
+      lng: 72.5714,
+    },
   },
   {
     name: "Infosys Park",
@@ -251,6 +276,10 @@ export const CompareListSampleData = [
     price: "Rs. 4cr - Rs. 6cr",
     category: "Office Space",
     details: "2kms from airport | 3km from hospital",
+    coordinates: {
+      lat: 18.5204,
+      lng: 73.8567,
+    },
   },
   {
     name: "Tech Hub",
@@ -283,5 +312,9 @@ export const CompareListSampleData = [
     price: "Rs. 5cr - Rs. 7cr",
     category: "Co-working Space",
     details: "1km from metro station | 5km from downtown",
+    coordinates: {
+      lat: 26.9124,
+      lng: 75.8577,
+    },
   },
 ];

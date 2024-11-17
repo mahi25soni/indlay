@@ -41,6 +41,10 @@ interface ListValueData {
   category: string;
   details: string;
   images?: { id: string; url: string }[];
+  coordinates: {
+    lat: number,
+    lng: number
+  }
 }
 
 interface ListData {
