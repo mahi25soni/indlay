@@ -14,6 +14,7 @@ import FilterSection from "@/components/ListingPageComponents/FilterSection/Filt
 import VerticalProperty from "@/components/Listing/VerticalProperty";
 import IndividualProperty from "@/components/ListingPageComponents/IndividualProperty/IndividualProperty";
 import { div } from "framer-motion/client";
+import { CompareListSampleData } from "@/testdata/compare-list-data";
 
 const categories = [
   "Category 1",
@@ -31,6 +32,14 @@ interface ListValueData {
   isBestSeller: boolean;
   amenities: { name: string; id: string }[];
   id: string;
+  areaSize: string;
+  developerName: string;
+  propertyType: string;
+  description: string;
+  date: string;
+  price: string;
+  category: string;
+  details: string;
   images?: { id: string, url: string }[];
 }
 
@@ -48,7 +57,7 @@ const ListingPage = () => {
   const [selectedIndividualProperty, setSelectedIndividualProperty] = useState<ListValueData>();
 
   useEffect(() => {
-    setListData(listingTestData["All Properties"]);
+    setListData(CompareListSampleData);
   }, []);
 
   const handleOptionChange = (option: string) => {

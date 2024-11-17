@@ -7,10 +7,6 @@ import { FaRegHeart } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi';
 import { IoMdAdd } from 'react-icons/io';
 
-interface Props {
-
-}
-
 interface CompareListItem {
     name: string;
     address: string;
@@ -25,9 +21,10 @@ interface CompareListItem {
     price: string;
     category: string;
     details: string;
+    images?: { id: string, url: string }[];
 }
 
-const ComparePage = (props: Props) => {
+const ComparePage = () => {
     const [compareListData, setCompareListData] = useState<CompareListItem[]>([])
     const [showReadMoreList, setShowReadMoreList] = useState<string[]>([])
 

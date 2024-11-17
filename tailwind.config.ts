@@ -11,6 +11,9 @@ const config: Config = {
       width: {
         mobile: "390px",
       },
+      borderWidth: {
+        "1.5": "1.5px",
+      },
       borderColor: {
         basic: "var(--border-color)",
       },
