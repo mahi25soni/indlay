@@ -63,7 +63,7 @@ const Listing = () => {
 
       <div className="flex w-full gap-4 overflow-y-auto scrollbar-hidden sm:grid sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:grid ">
         {showData.map((data) => (
-          <VerticalProperty key={data.id} {...data} onCompareClick={handleAddToCompareList} />
+          <VerticalProperty key={data.id} {...data} onPropertyClick={handleAddToCompareList} />
         ))}
       </div>
 

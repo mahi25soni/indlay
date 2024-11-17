@@ -69,7 +69,7 @@ const ListingLine = () => {
 
       <div className="mt-10 flex gap-5 lg:overflow-hidden overflow-y-auto scrollbar-hidden" ref={trackScrollRef}>
         {listData?.map((data) => {
-          return <VerticalProperty key={data?.id} {...data} onCompareClick={handleAddToCompareList} />;
+          return <VerticalProperty key={data?.id} {...data} onPropertyClick={handleAddToCompareList} />;
         })}
       </div>
 

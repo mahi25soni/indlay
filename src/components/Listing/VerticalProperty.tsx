@@ -12,12 +12,12 @@ interface VerticalPropertyProps {
   isBestSeller: boolean;
   amenities: { name: string; id: string }[];
   id: string;
-  onCompareClick: (id: string) => void;
+  onPropertyClick: (id: string) => void;
 }
 
 const VerticalProperty = (data: VerticalPropertyProps) => {
   return (
-    <div className="relative flex min-w-[312px] flex-grow flex-col rounded-20 border border-basic bg-secondary">
+    <div className="relative flex min-w-[312px] flex-grow flex-col rounded-20 border border-basic bg-secondary" onClick={() => data?.onPropertyClick(data?.id)}>
       <div className="relative">
         <Image
           src="/testing.jpg"
@@ -65,7 +65,7 @@ const VerticalProperty = (data: VerticalPropertyProps) => {
       </div>
 
       <div className="flex items-center gap-3 p-4">
-        <button className="flex flex-1 items-center justify-center gap-3 rounded-70 border border-cta bg-cta py-2 text-secondary" onClick={() => data?.onCompareClick(data?.id)}>
+        <button className="flex flex-1 items-center justify-center gap-3 rounded-70 border border-cta bg-cta py-2 text-secondary" >
           <IoMdAdd className="h-5 w-5" />
           <p className="text-sm">Compare</p>
         </button>

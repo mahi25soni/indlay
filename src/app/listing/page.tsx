@@ -40,7 +40,7 @@ interface ListValueData {
   price: string;
   category: string;
   details: string;
-  images?: { id: string, url: string }[];
+  images?: { id: string; url: string }[];
 }
 
 interface ListData {
@@ -54,7 +54,8 @@ const ListingPage = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [isExpandOpen, setIsExpandOpen] = useState(false);
   const [listData, setListData] = useState<ListValueData[]>([]);
-  const [selectedIndividualProperty, setSelectedIndividualProperty] = useState<ListValueData>();
+  const [selectedIndividualProperty, setSelectedIndividualProperty] =
+    useState<ListValueData>();
 
   useEffect(() => {
     setListData(CompareListSampleData);
@@ -89,23 +90,27 @@ const ListingPage = () => {
     setIsExpandOpen(false);
   };
 
-
   const selectPropertyToCompare = (id: string) => {
     const fProperty = listData?.find((property) => property.id === id);
     if (fProperty !== undefined) {
       setSelectedIndividualProperty(fProperty);
     }
-  }
+  };
 
   const closeSelectedProperty = () => {
     setSelectedIndividualProperty(undefined);
-  }
+  };
 
   return (
     <div>
       {/* Conditionally Render Expand Component */}
       {isExpandOpen ? (
         <ExpandedMap backToListing={backToListing} />
+      ) : selectedIndividualProperty ? (
+        <IndividualProperty
+          property={selectedIndividualProperty}
+          onClose={closeSelectedProperty}
+        />
       ) : (
         <>
           <div className="flex">
@@ -139,7 +144,9 @@ const ListingPage = () => {
                     {isDropdownOpen && (
                       <div
                         className="disolve absolute top-full z-10 mt-2 w-full min-w-[180px] gap-3 rounded-xl bg-white p-2 text-[14px] leading-[15px] transition-all duration-300 ease-out"
-                        style={{ boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.04)" }}
+                        style={{
+                          boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.04)",
+                        }}
                       >
                         {[
                           "Latest",
@@ -209,19 +216,15 @@ const ListingPage = () => {
 
               <div className="scrollbar-hidden grid h-[618px] grid-cols-1 gap-6 overflow-y-auto p-2 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                 {listData?.map((data) => (
-                  <VerticalProperty key={data.id} {...data} onCompareClick={selectPropertyToCompare} />
+                  <VerticalProperty
+                    key={data.id}
+                    {...data}
+                    onPropertyClick={selectPropertyToCompare}
+                  />
                 ))}
               </div>
             </div>
-
-
           </div>
-          {/* Right side pop up */}
-          {selectedIndividualProperty && (
-
-            <IndividualProperty property={selectedIndividualProperty} onClose={closeSelectedProperty} />
-          )}
-
         </>
       )}
     </div>

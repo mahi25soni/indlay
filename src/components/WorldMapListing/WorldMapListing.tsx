@@ -111,7 +111,7 @@ const WorldMapListing = () => {
             <div className='flex  gap-6 overflow-auto scrollbar-hidden lg:pr-6' ref={trackScrollRef}>
 
               {selectedCountryData && selectedCountryData?.map((data) => (
-                <VerticalProperty key={data.id} {...data} onCompareClick={handleAddToCompareList} />
+                <VerticalProperty key={data.id} {...data} onPropertyClick={handleAddToCompareList} />
               ))}
             </div>
 
