@@ -42,9 +42,9 @@ interface ListValueData {
   details: string;
   images?: { id: string; url: string }[];
   coordinates: {
-    lat: number,
-    lng: number
-  }
+    lat: number;
+    lng: number;
+  };
 }
 
 interface ListData {
@@ -60,6 +60,8 @@ const ListingPage = () => {
   const [listData, setListData] = useState<ListValueData[]>([]);
   const [selectedIndividualProperty, setSelectedIndividualProperty] =
     useState<ListValueData>();
+
+  const [openFilterTab, setOpenFilterTab] = useState<boolean>(false);
 
   useEffect(() => {
     setListData(CompareListSampleData);
@@ -119,17 +121,17 @@ const ListingPage = () => {
         <>
           <div className="flex">
             {/* Left */}
-            <div className="w-[320px] px-5">
+            <div className="hidden w-[320px] px-5 lg:block">
               <div className="flex h-[56px] w-full items-center border-b border-basic bg-white">
                 <p className="text-base font-medium leading-[17px]">Filters</p>
               </div>
-              <FilterSection />
+              <FilterSection height="h-[618px]" />
             </div>
 
             {/* Right */}
-            <div className="w-full min-w-[1120px] border-l border-basic">
-              <div className="flex h-[56px] items-center justify-between border-b border-basic bg-secondary p-3">
-                <p className="text-[14px] font-medium leading-[15px]">
+            <div className="w-full  border-l border-basic">
+              <div className="flex h-[56px] items-center justify-end lg:justify-between border-b border-basic bg-secondary lg:p-3 p-5">
+                <p className="hidden text-[14px] font-medium leading-[15px] lg:block">
                   Showing 20 results
                 </p>
 
@@ -142,8 +144,16 @@ const ListingPage = () => {
                     >
                       <span>Order by :</span>
 
-                      <span className="text-black">{orderBy}</span>
-                      <MdOutlineKeyboardArrowDown className="h-4 w-4 text-black" />
+                      <div className="flex items-center gap-3">
+
+                        <span className="text-black">{orderBy}</span>
+                        <Image
+                          src="/Arrow-down-simple.svg"
+                          alt="Filter"
+                          height={16}
+                          width={16}
+                        />
+                      </div>
                     </span>
                     {isDropdownOpen && (
                       <div
@@ -209,7 +219,7 @@ const ListingPage = () => {
                   </div>
 
                   <button
-                    className="flex h-[36px] w-[143px] items-center justify-center gap-3 rounded-70 border border-basic px-3 py-1 text-[14px] font-normal leading-[15px] text-[#074A6A]"
+                    className="hidden lg:flex h-[36px] w-[143px] items-center justify-center gap-3 rounded-70 border border-basic px-3 py-1 text-[14px] font-normal leading-[15px] text-[#074A6A]"
                     onClick={toggleExpand}
                   >
                     Expand Map
@@ -218,7 +228,7 @@ const ListingPage = () => {
                 </div>
               </div>
 
-              <div className="scrollbar-hidden grid h-[618px] grid-cols-1 gap-6 overflow-y-auto p-2 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+              <div className="scrollbar-hidden grid h-full lg:h-[618px] grid-cols-1 gap-6 overflow-y-auto p-5 lg:grid-cols-2 lg:p-2 xl:grid-cols-3">
                 {listData?.map((data) => (
                   <VerticalProperty
                     key={data.id}
@@ -227,6 +237,12 @@ const ListingPage = () => {
                   />
                 ))}
               </div>
+            </div>
+
+            <div className='fixed right-5 bg-cta-darker top-1/2 h-12 w-12 rounded-full flex justify-center items-center text-white z-300' style={{
+              boxShadow: "0px 0 30px rgba(2, 45, 66, 0.7)",
+            }} onClick={() => setOpenFilterTab(true)}>
+              <Image src="/FilterIcon.svg" height={24} width={24} alt='Arrow-left' className='text-white' />
             </div>
           </div>
         </>

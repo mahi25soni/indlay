@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 
 const FilterData: { [key: string]: string[] } = FiltersSampleData
 
-const FilterSection = () => {
+const FilterSection = ({ height }: { height: string }) => {
     const [filterData, setFilterData] = useState<{ [key: string]: string[] }>({});
     useEffect(() => {
         setFilterData(FilterData);
@@ -36,8 +36,9 @@ const FilterSection = () => {
 
 
 
+    const mainClass = `flex flex-col justify-between ${height} bg-[#FBFBFB] overflow-y-auto scrollbar-hidden`
     return (
-        <div className="relative h-[618px] bg-[#FBFBFB] overflow-y-auto scrollbar-hidden">
+        <div className={mainClass}>
             <div className='flex flex-col'>
                 {Object.keys(filterData)?.map((filterSection, index) => {
                     return <div>
@@ -65,7 +66,7 @@ const FilterSection = () => {
 
             </div>
 
-            <div className="sticky bottom-0 w-full h-[68px] bg-white flex justify-center gap-3 items-center">
+            <div className="sticky bottom-0 w-full min-h-[68px] bg-white flex justify-center gap-3 items-center">
                 <button className="bg-gray-200 font-normal text-[14px] leading-[15px] px-4 py-2 rounded-70 w-[134px]">Reset filters</button>
                 <button className="bg-[#074A6A] text-white font-normal text-[14px] leading-[15px] px-4 py-2 rounded-70 w-[134px]">Apply</button>
             </div>
