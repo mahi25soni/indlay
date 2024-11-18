@@ -142,7 +142,7 @@ const ListingPage = () => {
               <div className="flex h-[56px] w-full items-center border-b border-basic bg-white">
                 <p className="text-base font-medium leading-[17px]">Filters</p>
               </div>
-              <FilterSection height="h-[618px]" />
+              <FilterSection height="618px" />
             </div>
 
             {/* Right */}

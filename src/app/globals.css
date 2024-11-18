@@ -130,3 +130,13 @@ body,
   background: linear-gradient(to left, #022d42 100%, rgba(2, 45, 66, 0) 0%);
   pointer-events: none; /* Allows clicks to pass through the overlay */
 }
+
+.map-container {
+  height: 400px;
+}
+
+@media (min-width: 1024px) {
+  .map-container {
+    height: 674px;
+  }
+}

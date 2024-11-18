@@ -11,10 +11,6 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 const tempDesc =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,";
 
-const containerStyle = {
-    width: '100%',
-    height: '674px'
-};
 
 interface SinglePropertyInterface {
     name: string;
@@ -63,20 +59,22 @@ const IndividualProperty = (data: props) => {
     return (
 
         <div className="relative transform transition-transform duration-500 ease-in-out">
-            <div className="h-full w-full bg-white px-15 py-8">
-                <div className="grid grid-cols-12 gap-5 lg:h-[418px]">
-                    <div className="col-span-7 relative">
-                        <Image
-                            src={
-                                data.property.images?.[0]?.url || "defaultImagePath.jpg"
-                            }
-                            alt={data.property.name || "Property Image"}
-                            fill
-                            className="w-full rounded-2xl"
-                        />
+            <div className="h-full w-full bg-white lg:px-15 px-5 lg:py-8 py-[22px]">
+                <div className="grid grid-cols-12 gap-5 lg:h-[418px] ">
+                    <div className="lg:col-span-7 col-span-12">
+                        <div className="relative lg:h-[418px] h-[220px]">
+                            <Image
+                                src={
+                                    data.property.images?.[0]?.url || "defaultImagePath.jpg"
+                                }
+                                alt={data.property.name || "Property Image"}
+                                fill
+                                className="w-full rounded-2xl"
+                            />
+                        </div>
                     </div>
-                    <div className="col-span-5 grid grid-cols-2 gap-5">
-                        <div className="relative ">
+                    <div className="lg:col-span-5 col-span-12 grid grid-cols-2 gap-5">
+                        <div className="relative h-[124px] lg:h-full">
                             <Image
                                 src={
                                     data.property.images?.[1]?.url || "defaultImagePath.jpg"
@@ -119,12 +117,12 @@ const IndividualProperty = (data: props) => {
                     </div>
                 </div>
 
-                <div className="flex w-full gap-6 mt-6 h-full">
-                    <div className="flex-1 flex flex-col gap-5">
-                        <div className='h-[53px] w-full flex justify-between'>
+                <div className="flex w-full lg:gap-6 gap-4 mt-6 h-full lg:flex-row flex-col">
+                    <div className="flex-1 flex flex-col lg:gap-5 gap-4">
+                        <div className='lg:h-[53px] h-[42px] w-full flex justify-between'>
                             <div className='flex flex-col h-full justify-between gap-2'>
-                                <div className='font-medium text-2xl leading-[26.88px]'>{data?.property?.name}</div>
-                                <div className='text-light-gray font-normal leading-[17.92px]'>{data?.property?.address}</div>
+                                <div className='font-medium text-xl lg:text-2xl lg:leading-[26.88px] leading-[22.4px]'>{data?.property?.name}</div>
+                                <div className='text-light-gray font-normal text-sm lg:text-base lg:leading-[17.92px] leading-[15.68px]'>{data?.property?.address}</div>
                             </div>
                             <div className='flex gap-3'>
                                 {/* <div className='border border-basic bg-basic rounded-70 h-9 w-9 flex justify-center items-center'>
@@ -137,28 +135,28 @@ const IndividualProperty = (data: props) => {
                         </div>
                         <BrownLine />
                         <div className='flex flex-col gap-4 w-full items-start'>
-                            <div className='h-[22px] flex justify-between items-center w-full'>
-                                <div className='flex items-center font-medium text-xl leading-[22.4px]'>
+                            <div className='lg:h-[22px] h-[20px] flex justify-between items-center w-full'>
+                                <div className='flex items-center font-medium lg:text-xl leading-[22.4px] lg:leading-[17.92px] text-base'>
                                     Description
                                 </div>
                                 <Image src="/Arrow-down-simple.svg" alt='Arrow down ' height={20} width={20} />
 
                             </div>
-                            <div className={`font-normal text-base leading-[17.92px] text-light-gray ${readMoreActive ? "" : "line-clamp-4"}`}>
+                            <div className={`font-normal  text-sm lg:text-base lg:leading-[17.92px] leading-[15.68px] text-light-gray ${readMoreActive ? "" : "line-clamp-4"}`}>
                                 {tempDesc}
                             </div>
-                            <button className='border-none text-[#FE6240] font-medium leading-[17.92px]' onClick={() => {
+                            <button className='border-none text-[#FE6240]  text-sm lg:text-base font-medium lg:leading-[17.92px] leading-[15.68px]' onClick={() => {
                                 setReadMoreActive(!readMoreActive)
                             }}>
                                 {readMoreActive ? "Read Less" : "Read More"}
                             </button>
                         </div>
                         <BrownLine />
-                        <div className='flex flex-col gap-4 w-full items-start'>
-                            <div className='flex items-center font-medium text-xl leading-[22.4px]'>
+                        <div className='flex flex-col lg:gap-4 gap-3 w-full items-start'>
+                            <div className='flex items-center font-medium lg:text-xl leading-[22.4px] lg:leading-[17.92px] text-base'>
                                 Details
                             </div>
-                            <div className="grid grid-cols-6 text-cta-darker w-full gap-4">
+                            <div className="grid lg:grid-cols-6 grid-cols-3 text-cta-darker w-full gap-4">
 
                                 <DetailsInfo label="Area Size" value={data?.property?.areaSize} />
                                 <DetailsInfo label="Developer Name" value={data?.property?.developerName} />
@@ -175,11 +173,11 @@ const IndividualProperty = (data: props) => {
                             </div>
                         </div>
                         <BrownLine />
-                        <div className='flex flex-col gap-4 w-full items-start'>
-                            <div className='flex items-center font-medium text-xl leading-[22.4px]'>
+                        <div className='flex flex-col lg:gap-4 gap-3 w-full items-start'>
+                            <div className='flex items-center font-medium lg:text-xl leading-[22.4px] lg:leading-[17.92px] text-base'>
                                 Facilities
                             </div>
-                            <div className="grid grid-cols-6 text-cta-darker w-full">
+                            <div className="grid lg:grid-cols-6 grid-cols-3 text-cta-darker w-full gap-4">
                                 {data?.property?.amenities?.map((amenity) => {
                                     const IconComponent: React.ElementType | undefined =
                                         nameToListingIcon[amenity?.name];
@@ -199,13 +197,13 @@ const IndividualProperty = (data: props) => {
                         </div>
                         <BrownLine />
                         <div className='flex flex-col gap-3 w-full items-start'>
-                            <div className='flex items-center font-medium text-xl leading-[22.4px]'>
+                            <div className='flex items-center font-medium lg:text-xl leading-[22.4px] lg:leading-[17.92px] text-base'>
                                 Locations
                             </div>
                             <PropertyLocation {...data?.property?.coordinates} />
                         </div>
                     </div>
-                    <div className="flex w-[350px] h-max flex-col gap-5 rounded-2xl border border-basic px-4 py-5 sticky top-0 ">
+                    <div className="flex min-w-[350px] lg:w-[350px] h-max flex-col gap-5 rounded-2xl border border-basic px-4 py-5 sticky top-0 ">
                         <div className="text-xl font-medium leading-[22.4px] ">
                             Hello we are here to answer all your queries !!
                         </div>
@@ -281,7 +279,7 @@ const IndividualProperty = (data: props) => {
                             </div>
 
                             <button className="w-full bg-cta-darker text-white rounded-70 h-14 border border-cta-darker flex items-center justify-center gap-6">
-                                <div className="font-medium leading-[17.92px] ">
+                                <div className="font-medium lg:leading-[17.92px] leading-[15.68px] ">
                                     Submit
                                 </div>
                                 <Image
@@ -320,6 +318,12 @@ const DetailsInfo = ({ label, value }: { label: string, value: string }) => {
 
 const PropertyLocation = (data: { lat: number, lng: number }) => {
     const apiKey = "AIzaSyAaStiuLK-4UnoppS7ZcEqNnuE10Lpanvo";
+
+    const containerStyle = {
+        width: "100%",
+        height: "400px", // Default for smaller screens
+    };
+
     return (
         <LoadScript googleMapsApiKey={apiKey}>
             <GoogleMap
@@ -330,7 +334,8 @@ const PropertyLocation = (data: { lat: number, lng: number }) => {
                 <Marker position={data} />
             </GoogleMap>
         </LoadScript>
-    )
+    );
+
 }
 
 export default IndividualProperty;
