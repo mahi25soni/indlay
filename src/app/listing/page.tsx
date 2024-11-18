@@ -15,6 +15,7 @@ import VerticalProperty from "@/components/Listing/VerticalProperty";
 import IndividualProperty from "@/components/ListingPageComponents/IndividualProperty/IndividualProperty";
 import { div } from "framer-motion/client";
 import { CompareListSampleData } from "@/testdata/compare-list-data";
+import OverLay from "@/components/atoms/OverLay";
 
 const categories = [
   "Category 1",
@@ -108,8 +109,24 @@ const ListingPage = () => {
   };
 
   return (
-    <div>
+    <div className="default">
       {/* Conditionally Render Expand Component */}
+      {openFilterTab && <OverLay>
+        <div className="absolute right-0 top-0 z-1000 h-screen lg:w-[440px] w-[330px] bg-white">
+          <div className="relative h-full">
+            <div className="flex h-[56px] items-center border-b border-basic p-5 text-base font-medium leading-[17.92px]">
+              Filters
+            </div>
+            <FilterSection height={"calc(100vh - 56px)"} />
+            <div className='absolute left-[-60px] bg-cta top-1/2 h-12 w-12 rounded-full flex justify-center items-center text-white' style={{
+              boxShadow: "0px 0 30px rgba(2, 45, 66, 0.75)",
+            }} onClick={() => setOpenFilterTab(false)}>
+              <Image src="/close.svg" height={24} width={24} alt='Arrow-left' className='text-white' />
+            </div>
+          </div>
+        </div>
+      </OverLay>}
+
       {isExpandOpen ? (
         <ExpandedMap backToListing={backToListing} propertyList={listData} />
       ) : selectedIndividualProperty ? (
@@ -239,7 +256,7 @@ const ListingPage = () => {
               </div>
             </div>
 
-            <div className='fixed right-5 bg-cta-darker top-1/2 h-12 w-12 rounded-full flex justify-center items-center text-white z-300' style={{
+            <div className='fixed right-5 bg-cta-darker top-1/2 h-12 w-12 rounded-full flex justify-center items-center text-white z-300 lg:hidden' style={{
               boxShadow: "0px 0 30px rgba(2, 45, 66, 0.7)",
             }} onClick={() => setOpenFilterTab(true)}>
               <Image src="/FilterIcon.svg" height={24} width={24} alt='Arrow-left' className='text-white' />
