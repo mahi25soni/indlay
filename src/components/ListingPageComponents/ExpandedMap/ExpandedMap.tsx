@@ -1,11 +1,55 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import { BsArrowsAngleExpand } from "react-icons/bs";
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-interface Props {
-    backToListing: () => void
+interface ListValueData {
+    name: string;
+    address: string;
+    isBestSeller: boolean;
+    amenities: { name: string; id: string }[];
+    id: string;
+    areaSize: string;
+    developerName: string;
+    propertyType: string;
+    description: string;
+    date: string;
+    price: string;
+    category: string;
+    details: string;
+    images?: { id: string; url: string }[];
+    coordinates: {
+        lat: number,
+        lng: number
+    }
 }
 
+interface Props {
+    backToListing: () => void,
+    propertyList: ListValueData[]
+}
+
+const containerStyle = {
+    width: '100%',
+    height: '100%'
+};
+
+interface Coords {
+    lat: number,
+    lng: number
+}
+
+
+const apiKey = "AIzaSyAaStiuLK-4UnoppS7ZcEqNnuE10Lpanvo";
 const ExpandedMap = (data: Props) => {
+    const [locations, setLocation] = useState<Coords[]>([])
+    const [defaultCenter, setDefaultCenter] = useState<Coords>({ lat: 0, lng: 0 })
+    useEffect(() => {
+        setDefaultCenter(data?.propertyList[0]?.coordinates)
+        data?.propertyList?.map((property) => {
+            setLocation((prev) => [...prev, property.coordinates])
+        })
+    }, [])
     return (
         <div className='w-full h-[674px]'>
             <div className='h-[58px] flex justify-between items-center px-5'>
@@ -19,9 +63,17 @@ const ExpandedMap = (data: Props) => {
                 </button>
             </div>
 
-            <div>
-                Map Area
-            </div>
+            <LoadScript googleMapsApiKey={apiKey}>
+                <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={defaultCenter}
+                    zoom={5}
+                >
+                    {locations?.map((data, index) => (
+                        <Marker key={index} position={data} />
+                    ))}
+                </GoogleMap>
+            </LoadScript>
         </div>
     )
 }

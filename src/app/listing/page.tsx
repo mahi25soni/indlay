@@ -109,7 +109,7 @@ const ListingPage = () => {
     <div>
       {/* Conditionally Render Expand Component */}
       {isExpandOpen ? (
-        <ExpandedMap backToListing={backToListing} />
+        <ExpandedMap backToListing={backToListing} propertyList={listData} />
       ) : selectedIndividualProperty ? (
         <IndividualProperty
           property={selectedIndividualProperty}
