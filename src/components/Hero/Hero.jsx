@@ -39,24 +39,23 @@ const Hero = () => {
 
   return (
     <div className="relative mt-5 px-5 lg:px-15">
-      <div className="relative hidden lg:flex">
-        <Image
-          src="/Hero.png"
-          alt="Logo"
-          width={1320}
-          height={366}
-          className="w-full"
-        />
-        <div className="absolute left-1/2 top-1/2 h-[190px] max-w-[393px] -translate-x-1/2 -translate-y-1/2 transform text-center text-secondary">
-          <h2 className="text-[48px] font-normal leading-[57.6px]">
-            We help people
-          </h2>
-          <p className="w-[371px] text-[48px] font-normal leading-[57.6px]">
-            get their dreams
-          </p>
+      <div className="relative flex">
+        <div className="w-full overflow-hidden rounded-20">
+          <Image
+            src="/Hero.png"
+            alt="Logo"
+            width={1320}
+            height={366}
+            className="h-[450px] max-w-none lg:h-[400px] lg:max-w-full"
+          />
+        </div>
+
+        <div className="absolute left-1/2 top-[25%] flex h-[190px] max-w-[393px] -translate-x-1/2 -translate-y-1/2 transform flex-col gap-1 text-center text-[32px] font-normal leading-[38.4px] text-secondary lg:top-1/2 lg:text-[48px] lg:leading-[57.6px]">
+          <div className="whitespace-nowrap">We help people</div>
+          <div className="whitespace-nowrap">get their dreams</div>
           <div className="text-wrapper">
             <p
-              className={`tracking-tighter-[2%] text-[48px] font-normal leading-[65.81px] text-primary ${
+              className={`tracking-tighter-[2%] text-primary ${
                 animate ? "text-changing" : ""
               }`}
             >
@@ -64,32 +63,6 @@ const Hero = () => {
             </p>
           </div>
         </div>
-      </div>
-
-      <div className="relative h-[400px] w-full lg:hidden">
-        <Image
-          src="HomePageHeroMobile.svg"
-          alt="Logo"
-          fill
-          className="object-contain"
-        />
-        {/* <div className="absolute left-1/2 top-1/2 h-[190px] max-w-[393px] -translate-x-1/2 -translate-y-1/2 transform text-center text-secondary">
-          <h2 className="text-[48px] font-normal leading-[57.6px]">
-            We help people
-          </h2>
-          <p className="w-[371px] text-[48px] font-normal leading-[57.6px]">
-            get their dreams
-          </p>
-          <div className="text-wrapper">
-            <p
-              className={`tracking-tighter-[2%] text-[48px] font-normal leading-[65.81px] text-primary ${
-                animate ? "text-changing" : ""
-              }`}
-            >
-              {words[currentWordIndex]}
-            </p>
-          </div>
-        </div> */}
       </div>
 
       <div
