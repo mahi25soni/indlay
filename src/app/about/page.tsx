@@ -22,7 +22,7 @@ const TrustedCompanies = dynamic(
 const About = () => {
   return (
     <div className="w-full px-5 lg:px-15">
-      <div className="h-screen">
+      <div className="h-[432px] lg:h-[926px]">
         <AboutPageHero />
       </div>
       <AboutMission />
