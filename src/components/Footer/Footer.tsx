@@ -2,15 +2,29 @@ import Image from "next/image";
 import React from "react";
 import dynamic from "next/dynamic";
 import ConnectUsMobileBanner from "./ConnectUsMobileBanner";
+import Link from "next/link";
 
 const ConnectUsBanner = dynamic(
   () => import("@/components/Footer/ConnectUsBanner"),
 )
 
-const footerRedirects: { [key: string]: string[] } = {
-  Company: ["Home", "About", "Contact", "Projects"],
-  Legal: ["Terms & Conditions", "Privacy Policy"],
-  "Social Links": ["Instagram", "Facebook", "Youtube", "Twitter"],
+const footerRedirects: { [key: string]: { label: string, href: string }[] } = {
+  Company: [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "Projects", href: "/projects" },
+  ],
+  Legal: [
+    { label: "Terms & Conditions", href: "/terms-and-conditions" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+  ],
+  "Social Links": [
+    { label: "Instagram", href: "https://instagram.com" },
+    { label: "Facebook", href: "https://facebook.com" },
+    { label: "Youtube", href: "https://youtube.com" },
+    { label: "Twitter", href: "https://twitter.com" },
+  ],
 };
 
 const Footer = () => {
@@ -30,13 +44,15 @@ const Footer = () => {
         <div className="lg:flex lg:justify-end lg:gap-10 grid grid-cols-2 w-full gap-10 px-5">
           {Object.keys(footerRedirects).map((key: string) => {
             return (
-              <div>
+              <div key={key}>
                 <p className="text-xl font-medium mb-1">{key}</p>
-                {footerRedirects[key].map((value) => {
+                {footerRedirects[key].map((item) => {
                   return (
-                    <p className="cursor-pointer font-normal text-light-gray mt-2">
-                      {value}
-                    </p>
+                    <Link key={item.label} href={item.href}>
+                      <p className="cursor-pointer font-normal text-light-gray mt-2">
+                        {item.label}
+                      </p>
+                    </Link>
                   );
                 })}
               </div>
