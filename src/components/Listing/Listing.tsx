@@ -5,6 +5,7 @@ import { GoArrowRight } from "react-icons/go";
 
 import dynamic from "next/dynamic";
 import SingleHeading from "../atoms/SingleHeading/SingleHeading";
+import Link from "next/link";
 const VerticalProperty = dynamic(
   () => import("@/components/Listing/VerticalProperty"),
 );
@@ -68,10 +69,12 @@ const Listing = () => {
       </div>
 
       <div className="flex items-center justify-center">
-        <button className="bg-secondary flex items-center justify-center gap-3 rounded-70 border border-basic px-3 py-2 text-base font-medium text-cta-darker">
-          <p className="text-sm">View all</p>
-          <GoArrowRight className="h-5 w-5" />
-        </button>
+        <Link href="/listing">
+          <button className="bg-secondary flex items-center justify-center gap-3 rounded-70 border border-basic px-3 py-2 text-base font-medium text-cta-darker">
+            <p className="text-sm">View all</p>
+            <GoArrowRight className="h-5 w-5" />
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -36,10 +36,10 @@ const FilterSection = ({ height }: { height: string }) => {
 
 
     return (
-        <div className="flex flex-col justify-between bg-[#FBFBFB] overflow-y-auto scrollbar-hidden px-5" style={{
+        <div className="flex flex-col justify-between bg-[#FBFBFB] overflow-y-auto scrollbar-hidden px-5 lg:px-0" style={{
             height: `${height}`
         }}>
-            <div className='flex flex-col overflow-y-auto'>
+            <div className='flex flex-col overflow-y-auto scrollbar-hidden'>
                 {Object.keys(filterData)?.map((filterSection, index) => {
                     return <div>
                         <div className="text-sm font-normal leading-[15.68px] flex justify-between cursor-pointer h-10 items-center" onClick={() => handleSectionDropdown(filterSection)}>

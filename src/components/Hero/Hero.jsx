@@ -46,6 +46,7 @@ const Hero = () => {
             alt="Logo"
             width={1320}
             height={366}
+            layout="responsive"
             className="h-[450px] max-w-none lg:h-[400px] lg:max-w-full"
           />
         </div>
