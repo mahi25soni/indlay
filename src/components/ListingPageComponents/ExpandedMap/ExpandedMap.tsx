@@ -51,7 +51,7 @@ const ExpandedMap = (data: Props) => {
         })
     }, [])
     return (
-        <div className='w-full h-[674px]'>
+        <div className='w-full h-[674px] pb-5 lg:pb-0'>
             <div className='h-[58px] flex justify-between items-center px-5'>
                 <div className='font-medium leading-[15.68px]'>Showing 20 results</div>
                 <button

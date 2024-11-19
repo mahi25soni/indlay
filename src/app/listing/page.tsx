@@ -154,7 +154,7 @@ const ListingPage = () => {
 
                 <div className="flex h-9 items-center gap-4">
                   {/* Order by Dropdown */}
-                  <div className="relative flex cursor-pointer items-center justify-center text-[14px] leading-[15.68px] text-light-gray">
+                  <div className="relative h-14 flex cursor-pointer items-center justify-center text-[14px] leading-[15.68px] text-light-gray">
                     <span
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                       className="flex items-center gap-1"
@@ -174,7 +174,7 @@ const ListingPage = () => {
                     </span>
                     {isDropdownOpen && (
                       <div
-                        className="disolve absolute top-full z-10 mt-2 w-full min-w-[180px] gap-3 rounded-xl bg-white p-2 text-[14px] leading-[15px] transition-all duration-300 ease-out"
+                        className="absolute top-full right-0 bg-white px-4 z-200  w-[180px]  rounded-3xl border border-basic text-sm leading-[15.68px] p-4"
                         style={{
                           boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.04)",
                         }}
@@ -210,7 +210,7 @@ const ListingPage = () => {
                       onClick={() =>
                         setIsCategoryDropdownOpen(!isCategoryDropdownOpen)
                       }
-                      className="flex h-16 items-center gap-4"
+                      className="flex items-center gap-4"
                     >
                       <div>All categories</div>
                       <Image
@@ -221,6 +221,7 @@ const ListingPage = () => {
                       />
                     </div>
                     {isCategoryDropdownOpen && (
+
                       <SelectingFilters
                         heading="Categories"
                         id="categories"
