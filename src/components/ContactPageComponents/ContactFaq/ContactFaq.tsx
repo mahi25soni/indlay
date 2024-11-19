@@ -39,7 +39,7 @@ const ContactFaq: React.FC = () => {
               <p
                 key={item.category}
                 onClick={() => handleCategoryChange(item.category)}
-                className={`cursor-pointer rounded-70 px-3 py-1 whitespace-nowrap text-sm border ${selectedCategory === item.category ? "bg-primary border-basic" : "border-basic" 
+                className={`cursor-pointer rounded-70 px-3 py-1 whitespace-nowrap text-sm border ${selectedCategory === item.category ? "bg-primary border-basic" : "border-basic"
                   }`}
               >
                 {item.category}
@@ -49,7 +49,7 @@ const ContactFaq: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-[350px] lg:w-[870px] mt-6 gap-6">
+      <div className="w-[350px] lg:w-[870px] mt-6 gap-6 text-left">
         {filteredQuestions.map((item, index) => (
           <div
             key={index}
@@ -62,7 +62,7 @@ const ContactFaq: React.FC = () => {
               aria-expanded={openIndex === index}
               aria-controls={`faq-answer-${index}`}
             >
-              <h2 className="text-[16px] lg:text-[20px] leading-[17.92px] lg:leading-[22px] font-medium ">{item.question}</h2>
+              <h2 className="text-left text-[16px] lg:text-[20px] leading-[17.92px] lg:leading-[22px] font-medium ">{item.question}</h2>
               {openIndex === index ? (
                 <CiCircleMinus className="text-gray-500 lg:w-8 lg:h-8 w-6 h-6" />
               ) : (
