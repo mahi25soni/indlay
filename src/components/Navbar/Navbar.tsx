@@ -64,11 +64,16 @@ const Navbar = () => {
               <FaCodeCompare className="lg:h-6 lg:w-6 h-5 w-5" />
               <div className="hidden lg:block">Compare</div>
             </div>
-            <div className="w-9 lg:w-full flex items-center justify-center lg:gap-3 lg:px-3 text-base text-cta-darker bg-basic lg:bg-transparent rounded-full lg:rounded-none cursor-pointer" onClick={() => setOpenSideTabBar(!openSideTabBar)}>
+            <div className="hidden lg:flex w-9 lg:w-full  items-center justify-center lg:gap-3 lg:px-3 text-base text-cta-darker bg-basic lg:bg-transparent rounded-full lg:rounded-none cursor-pointer">
               <FaRegUserCircle className="lg:h-6 lg:w-6 h-5 w-5" />
-              <div className="hidden lg:block">Login/Signup</div>
+              <div className="">Login/Signup</div>
 
             </div>
+            <div className="lg:hidden w-9 lg:w-full flex items-center justify-center lg:gap-3 lg:px-3 text-base text-cta-darker bg-basic lg:bg-transparent rounded-full lg:rounded-none cursor-pointer" onClick={() => setOpenSideTabBar(!openSideTabBar)}>
+              <Image src={"MenuIcon.svg"} width={20} height={20} alt="menu icon" />
+
+            </div>
+
           </div>
         </div>
         <div className="hidden relative lg:flex h-[54px] items-center gap-8">
