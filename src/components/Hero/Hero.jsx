@@ -24,15 +24,12 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Disable the animation before changing the word
       setAnimate(false);
-
-      // Change the word after a short delay (to reset animation)
       setTimeout(() => {
         setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-        setAnimate(true); // Re-enable animation after word change
-      }, 100); // Delay of 100ms to reset the animation
-    }, 3000); // Change word every 3 seconds
+        setAnimate(true);
+      }, 100);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [words.length]);
@@ -46,8 +43,8 @@ const Hero = () => {
             alt="Logo"
             width={1320}
             height={366}
-            layout="responsive"
-            className="h-[450px] max-w-none lg:h-[400px] lg:max-w-full"
+            // layout="responsive"
+            className="min-h-[450px] max-w-none lg:h-[400px] lg:max-w-full"
           />
         </div>
 
