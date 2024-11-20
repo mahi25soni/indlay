@@ -91,39 +91,35 @@ const Navbar = () => {
       </div>
       {hoveredTab && (
         <div
-          className="absolute z-50 grid h-80 max-h-80 w-full transform grid-cols-12 gap-10 rounded-20 border-b border-basic bg-[--bg-color] px-15 py-2 transition-all duration-300 ease-in-out"
+          className="absolute z-50 grid max-h-screen min-h-80 w-full transform grid-cols-12 gap-10 rounded-20 border-b border-basic bg-[--bg-color] px-15 py-2 transition-all duration-300 ease-in-out"
           onMouseEnter={() => setHoveredTab(hoveredTab)}
           onMouseLeave={() => setHoveredTab(null)}
         >
-          <div className="col-span-8 flex max-h-80 flex-col flex-wrap gap-10 overflow-auto">
-            {tabs[hoveredTab].sections.map((section) => {
-              return (
-                <div key={section.heading}>
-                  <div className="mb-3 cursor-pointer text-xl font-medium">
-                    {section?.heading}
-                  </div>
-                  {section?.subheadings?.map((subheading) => {
-                    return (
-                      <p className="cursor-pointer text-[#72798A]">
-                        {subheading}
-                      </p>
-                    );
-                  })}
+          <div className="col-span-8 grid grid-cols-3  gap-10  ">
+            {tabs[hoveredTab].sections.map((section) => (
+              <div key={section.heading} className="min-w-[300px]">
+                <div className="mb-3 cursor-pointer text-xl font-medium">
+                  {section?.heading}
                 </div>
-              );
-            })}
+                {section?.subheadings?.map((subheading) => (
+                  <p className="cursor-pointer text-[#72798A]" key={subheading}>
+                    {subheading}
+                  </p>
+                ))}
+              </div>
+            ))}
           </div>
-
-          <div className="relative col-span-4 flex justify-end p-3">
+          <div className="relative col-span-4 flex justify-end p-3  h-[319px]">
             <Image
               src={tabs[hoveredTab]?.image}
               alt="Navbar tab image"
               fill
-              className="rounded-20 object-cover" // Adjust this as needed
+              className="rounded-20 object-cover"
             />
           </div>
         </div>
       )}
+
     </div>
   );
 };
