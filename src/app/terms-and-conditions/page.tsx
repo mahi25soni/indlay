@@ -10,7 +10,7 @@ const TermsAndCondition: React.FC = () => {
     return (
         <div className="p-5 lg:px-15 min-w-[350px] w-full">
             <div className="flex flex-col font-medium text-center mb-7">
-                <p className="text-[24px] lg:text-[32px] leading-[28.8px] lg:leading-[38.4px] font-medium">Privacy Policy</p>
+                <p className="font-youth text-[24px] lg:text-[32px] leading-[28.8px] lg:leading-[38.4px] font-medium">Privacy Policy</p>
                 <p className="font-normal text-[14px] lg:text-[16px] leading-[15.68px] lg:leading-[17.92px] text-[#9B9EA6]">
                     Last updated on <span className="font-medium text-black">Oct 6th 2024</span>
                 </p>

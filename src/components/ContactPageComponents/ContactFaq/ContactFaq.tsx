@@ -33,7 +33,7 @@ const ContactFaq: React.FC = () => {
     <div className="flex flex-col items-center justify-center">
       <div className="px-15 mt-16 text-center">
         <div className="mx-auto flex flex-col items-center">
-          <p className="font-medium text-[24px] md:text-[32px] leading-[28.8px] md:leading-[38.4px]">Frequently Asked Questions</p>
+          <p className="font-youth font-medium text-[24px] md:text-[32px] leading-[28.8px] md:leading-[38.4px]">Frequently Asked Questions</p>
           <div className="w-full  flex justify-center gap-2 mt-4 lg:overflow-hidden overflow-y-auto scrollbar-hidden">
             {faqItems.map((item) => (
               <p

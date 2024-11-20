@@ -96,21 +96,6 @@ body {
   --bg-bestseller: #c8ffee;
 }
 
-.family-banana {
-  font-family: "Banana-grotesk";
-}
-.heading {
-  font-family: "Youth", sans-serif;
-  font-weight: medium !important;
-  font-size: 32px;
-  color: #000000;
-}
-.mobile-heading {
-  font-weight: medium !important;
-  font-size: 24px;
-  color: #000000;
-}
-
 .scrollbar-hidden {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -157,4 +142,9 @@ body {
   .map-container {
     height: 674px;
   }
+}
+
+input::placeholder {
+  font-family: "Banana-grotesk", sans-serif;
+  font-weight: 400; /* Normal */
 }

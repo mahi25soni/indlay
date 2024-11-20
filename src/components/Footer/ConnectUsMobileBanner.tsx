@@ -12,7 +12,7 @@ const ConnectUsMobileBanner = (props: Props) => {
             </div>
             <div className="relative max-h-full flex flex-col items-center lg:items-end justify-center bg-cta-darker  text-white text-center w-full">
 
-                <h1 className="mb-6 text-5xl font-bold text-primary">Get Started</h1>
+                <h1 className="mb-6 text-5xl font-medium text-primary font-youth whitespace-nowrap">Get Started</h1>
                 <div className="mb-[50px] text-2xl leading-[26.88px] font-medium ">
                     <p>Find your best </p>
                     <p>suitable service</p>

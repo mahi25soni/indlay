@@ -24,7 +24,7 @@ const AboutMission = () => {
     <div className="mt-[120px] lg:mt-0 px-4">
       <div className="flex flex-wrap justify-between gap-6">
         <div className="w-full lg:w-auto">
-          <p className="text-[28px] lg:text-[32px] font-medium leading-[28.8px] lg:leading-snug text-center lg:text-start ">
+          <p className="font-youth text-[28px] lg:text-[32px] font-medium leading-[28.8px] lg:leading-snug text-center lg:text-start ">
             Our Mission
           </p>
         </div>

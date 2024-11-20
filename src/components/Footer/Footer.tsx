@@ -1,11 +1,13 @@
 import Image from "next/image";
 import React from "react";
 import dynamic from "next/dynamic";
-import ConnectUsMobileBanner from "./ConnectUsMobileBanner";
 import Link from "next/link";
 
 const ConnectUsBanner = dynamic(
   () => import("@/components/Footer/ConnectUsBanner"),
+)
+const ConnectUsMobileBanner = dynamic(
+  () => import("@/components/Footer/ConnectUsMobileBanner"),
 )
 
 const footerRedirects: { [key: string]: { label: string, href: string }[] } = {

@@ -16,7 +16,7 @@ const ConnectUsBanner = () => {
         />
       </div>
       <div className="relative max-h-full flex w-1/3 flex-col items-end justify-end bg-cta-darker p-10 text-white">
-        <h1 className="mb-6 text-5xl font-bold text-primary">Get Started</h1>
+        <h1 className="mb-6 text-5xl font-bold text-primary font-youth whitespace-nowrap">Get Started</h1>
         <div className="mb-6 text-lg leading-6">
           <p>Find your best </p>
           <p>suitable service</p>

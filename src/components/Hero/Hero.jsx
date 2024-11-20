@@ -52,11 +52,11 @@ const Hero = () => {
         </div>
 
         <div className="absolute left-1/2 top-[25%] flex h-[190px] max-w-[393px] -translate-x-1/2 -translate-y-1/2 transform flex-col gap-1 text-center text-[32px] font-normal leading-[38.4px] text-secondary lg:top-1/2 lg:text-[48px] lg:leading-[57.6px]">
-          <div className="whitespace-nowrap">We help people</div>
-          <div className="whitespace-nowrap">get their dreams</div>
+          <div className="font-youth whitespace-nowrap">We help people</div>
+          <div className="font-youth whitespace-nowrap">get their dreams</div>
           <div className="text-wrapper">
             <p
-              className={`tracking-tighter-[2%] text-primary ${
+              className={`tracking-tighter-[2%] font-dm-serif-display text-primary ${
                 animate ? "text-changing" : ""
               }`}
             >
