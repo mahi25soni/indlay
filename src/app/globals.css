@@ -2,51 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
+@font-face {
   font-family: "Banana-grotesk";
-  src:
-    url("/public/fonts/Banana-grotesk/bold.otf") format("opentype"),
-    url("/public/fonts/Banana-grotesk/medium.otf") format("opentype"),
-    url("/public/fonts/Banana-grotesk/regular.otf") format("opentype"),
-    url("/public/fonts/Banana-grotesk/semibold.otf") format("opentype"),
-    url("/public/fonts/Banana-grotesk/thin.otf") format("opentype")
-      url("/public/fonts/Banana-grotesk/extrabold.otf") format("opentype")
-      url("/public/fonts/Banana-grotesk/extralight.otf") format("opentype"),
-    url("/public/fonts/Banana-grotesk/light.otf") format("opentype");
-  font-weight: bold;
+  src: url("/fonts/Banana-grotesk/regular.otf") format("opentype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Banana-grotesk";
+  src: url("/fonts/Banana-grotesk/medium.otf") format("opentype");
+  font-weight: 500; /* Medium */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Banana-grotesk";
+  src: url("/fonts/Banana-grotesk/semibold.otf") format("opentype");
+  font-weight: 600; /* Semi-Bold */
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "DM-Serif-Display";
-  src:
-    url("/public/fonts/DM_Serif_Display/Italic.ttf") format("truetype"),
-    url("/public/fonts/DM_Serif_Display/Regular.ttf") format("truetype");
-  font-weight: bold;
+  src: url("/fonts/DM_Serif_Display/Regular.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Youth";
-  src:
-    url("/public/fonts/Youth/Black\ Italic.woff2") format("woff2"),
-    url("/public/fonts/Youth/Black.woff2") format("woff2"),
-    url("/public/fonts/Youth/Bold\ Italic.woff2") format("woff2"),
-    url("/public/fonts/Youth/Bold.woff2") format("woff2"),
-    url("/public/fonts/Youth/Italic.woff2") format("woff2"),
-    url("/public/fonts/Youth/Light\ Italic.woff2") format("woff2"),
-    url("/public/fonts/Youth/Light.woff2") format("woff2"),
-    url("/public/fonts/Youth/Medium\ Italic.woff2") format("woff2"),
-    url("/public/fonts/Youth/Medium.woff2") format("woff2"),
-    url("/public/fonts/Youth/Regular\ Italic.woff2") format("woff2"),
-    url("/public/fonts/Youth/Thin\ Italic.woff2") format("woff2"),
-    url("/public/fonts/Youth/Thin.woff2") format("woff2");
-  font-weight: bold;
+  src: url("/fonts/Youth/Light.woff2") format("woff2");
+  font-weight: 300; /* Light */
   font-style: normal;
   font-display: swap;
-} */
+}
+
+@font-face {
+  font-family: "Youth";
+  src: url("/fonts/Youth/Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Youth";
+  src: url("/fonts/Youth/Medium.woff2") format("woff2");
+  font-weight: 500; /* Medium */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Youth";
+  src: url("/fonts/Youth/Bold.woff2") format("woff2");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+  font-display: swap;
+}
 
 *,
 *::before,
@@ -65,9 +83,9 @@ body,
   background-color: #fbfbfb;
 }
 
-/* body {
-  font-family: "Youth", "Banana-grotesk", sans-serif , "DM-Serif-Display";
-} */
+body {
+  font-family: "Banana-grotesk", sans-serif;
+}
 
 :root {
   --bg-color: #fbfbfb;
@@ -82,8 +100,8 @@ body,
   font-family: "Banana-grotesk";
 }
 .heading {
-  /* font-family: "Youth" !important; */
-  font-weight: bold !important;
+  font-family: "Youth", sans-serif;
+  font-weight: medium !important;
   font-size: 32px;
   color: #000000;
 }

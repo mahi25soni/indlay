@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        banana: ['"Banana-grotesk"', "sans-serif"],
+        youth: ['"Youth"', "sans-serif"],
+        "dm-serif-display": ['"DM Serif Display"', "serif"],
+      },
       width: {
         mobile: "390px",
       },
