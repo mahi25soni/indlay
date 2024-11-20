@@ -107,6 +107,9 @@ const IndividualProperty = (data: props) => {
                                     fill
                                     className="w-full rounded-2xl"
                                 />
+                                <div className="lg:hidden bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center ">
+                                    <p className="font-medium text-base leading-[17.92]">See more photos</p>
+                                </div>
                             </div>
                             <div className="relative ">
                                 <Image
@@ -127,6 +130,10 @@ const IndividualProperty = (data: props) => {
                                     fill
                                     className="w-full rounded-2xl"
                                 />
+                                <div className="bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center ">
+                                    <p className="font-medium text-base leading-[17.92]">See more photos</p>
+                                </div>
+
                             </div>
                         </div>
                     </div>
