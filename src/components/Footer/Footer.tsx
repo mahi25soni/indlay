@@ -37,7 +37,9 @@ const Footer = () => {
       <ConnectUsMobileBanner />
       <div className="flex flex-col lg:flex-row lg:items-start  lg:justify-between items-center gap-8 lg:gap-0">
         <div className="flex flex-col gap-4 items-center lg:items-start">
-          <Image src="/logo.png" alt="Logo" width={118} height={48} />
+          <Image src="/Logo.png" alt="Logo" width={118} height={48} />
+
+
           <div className="text-sm leading-[15.68px] text-light-gray">
             <p>Orient Arcade, Chittor Road,</p>
             <p>Bhilwara, Rajasthan (311001)</p>
