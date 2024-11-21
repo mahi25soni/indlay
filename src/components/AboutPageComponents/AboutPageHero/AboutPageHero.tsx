@@ -21,7 +21,7 @@ const AboutPageHero = () => {
   return (
     <div className="mt-5 ">
       <div className="relative z-50 flex justify-center ">
-        <div className="w-full md:w-[1320px] h-[312px] md:h-[528px] rounded-[32px] bg-[#022D42] relative">
+        <div className="w-full md:w-full h-[312px] md:h-[528px] rounded-[32px] bg-[#022D42] relative">
           <div className="absolute left-1/2 lg:top-1/4 top-[40%] -translate-x-1/2 -translate-y-1/2 transform  max-w-[502px] h-[190px] flex-col gap-1 text-center text-[32px] font-normal leading-[38.4px] text-secondary lg:text-[48px] lg:leading-[57.6px]">
             <div className="whitespace-nowrap font-youth">Compare, Choose, &</div>
             <div className="whitespace-nowrap font-youth">Invest in Top</div>
@@ -35,15 +35,15 @@ const AboutPageHero = () => {
             </div>
           </div>
         </div>
-        <div className="absolute top-60">
+        <div className="absolute top-60 ">
           {/* <Image src="/aboutHero.png" alt="About Hero" width={1256} height={528} className="flex justify-center" /> */}
-          <div className=" overflow-hidden rounded-20">
+          <div className="w-full overflow-hidden rounded-20">
             <Image
               src="/aboutHero.png"
               alt="Logo"
               width={1256}
               height={528}
-              className="h-[250px] max-w-none lg:h-[528px] lg:max-w-full flex justify-center lg:w-full w-[320px]"
+              className="h-[250px] max-w-none lg:h-[700px] object-contain   lg:w-full w-[320px]"
             />
           </div>
         </div>

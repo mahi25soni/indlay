@@ -31,7 +31,7 @@ const ContactPageHero = () => {
             alt="Logo"
             width={1320}
             height={366}
-            className="h-[450px] max-w-none lg:h-[400px] lg:max-w-full"
+            className="h-[450px] max-w-none lg:h-[400px] object-fill lg:w-full"
           />
         </div>
 
