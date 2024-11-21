@@ -41,7 +41,7 @@ interface ListValueData {
   price: string;
   category: string;
   details: string;
-  images?: { id: string; url: string }[];
+  images: { id: string; url: string }[];
   coordinates: {
     lat: number;
     lng: number;
@@ -109,7 +109,7 @@ const ListingPage = () => {
   };
 
   return (
-    <div className="default">
+    <div>
       {/* Conditionally Render Expand Component */}
       {openFilterTab && <OverLay>
         <div className="absolute right-0 top-0 z-1000 h-screen lg:w-[440px] w-[330px] bg-white">

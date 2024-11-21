@@ -7,6 +7,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { FiPhoneCall } from "react-icons/fi";
 import { IoMdAdd } from "react-icons/io";
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
+import { RxCross2 } from "react-icons/rx";
 
 const tempDesc =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,";
@@ -18,7 +20,7 @@ interface SinglePropertyInterface {
     isBestSeller: boolean;
     amenities: { name: string; id: string }[];
     id: string;
-    images?: { id: string; url: string }[];
+    images: { id: string; url: string }[];
     areaSize: string;
     developerName: string;
     propertyType: string;
@@ -48,6 +50,7 @@ const IndividualProperty = (data: props) => {
     const [readMoreActive, setReadMoreActive] = useState<boolean>(false);
     const scrollRef = useRef<HTMLDivElement>(null);
     const [mapLoaded, setMapLoaded] = useState(false);
+    const [imageCarousel, setImageCarousel] = useState<Boolean>(false);
 
     const [queryName, setQueryName] = useState<string>("");
     const [queryEmail, setQueryEmail] = useState<string>("");
@@ -69,10 +72,63 @@ const IndividualProperty = (data: props) => {
     }, [mapLoaded]);
     const apiKey = "AIzaSyAaStiuLK-4UnoppS7ZcEqNnuE10Lpanvo";
 
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handlePrev = () => {
+        setCurrentIndex((prev) => (prev === 0 ? data?.property?.images?.length - 1 : prev - 1));
+    };
+
+    const handleNext = () => {
+        setCurrentIndex((prev) => (prev === data?.property?.images?.length - 1 ? 0 : prev + 1));
+    };
+
     return (
         <LoadScript googleMapsApiKey={apiKey}>
 
-            <div className="relative transform transition-transform duration-500 ease-in-out">
+            {imageCarousel && <div className="h-screen flex top-0 flex-col gap-20 justify-between items-center fixed w-full  bg-black bg-opacity-50 backdrop-blur-lg  p-4  overflow-hidden z-1000">
+                <div className="flex h-max flex-row justify-end  w-full">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white border border-basic" onClick={() => setImageCarousel(false)}>
+
+                        <RxCross2 className="h-6 w-6 text-cta-darker" />
+
+                    </div>
+                </div>
+                {data?.property?.images && <div className="flex-1 flex h-[607px] items-center justify-center relative lg:w-[80%] w-full">
+                    {data?.property?.images?.map((image, index) => (
+                        <img
+                            key={index}
+                            src={image?.url}
+                            alt={`Slide ${index}`}
+                            className={`absolute rounded-lg transition-transform duration-700 ease-in-out h-[196px]  lg:h-[418px] ${index === currentIndex
+                                ? "translate-x-0 scale-100 z-10"
+                                : index === (currentIndex - 1 + data?.property?.images?.length) % data?.property?.images?.length
+                                    ? "-translate-x-full scale-90 z-0"
+                                    : "translate-x-full scale-90 z-0"
+                                }`}
+                        />
+                    ))}
+                </div>}
+
+                <div className="flex items-center gap-2">
+                    <button
+                        className="flex h-12 w-12 items-center justify-center rounded-full border border-basic bg-white"
+                        onClick={handlePrev}
+                    >
+                        <GoArrowLeft className="h-6 w-6 text-cta-darker" />
+                    </button>
+                    <button
+                        className="flex h-12 w-12 items-center justify-center rounded-full border border-basic bg-white"
+                        onClick={handleNext}
+                    >
+                        <GoArrowRight className="h-6 w-6 text-cta-darker" />
+                    </button>
+                </div>
+            </div>}
+
+
+            <div className={`relative transform transition-transform duration-500 ease-in-out
+                }`}>
                 <div className="h-full w-full bg-white lg:px-15 px-5 lg:py-8 py-[22px]">
                     <div className="grid grid-cols-12 gap-5 lg:h-[418px] ">
                         <div className="lg:col-span-7 col-span-12">
@@ -107,8 +163,8 @@ const IndividualProperty = (data: props) => {
                                     fill
                                     className="w-full rounded-2xl"
                                 />
-                                <div className="lg:hidden bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center ">
-                                    <p className="font-medium text-base leading-[17.92]">See more photos</p>
+                                <div className="lg:hidden bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center " onClick={() => setImageCarousel(true)}>
+                                    <p className="font-medium text-base leading-[17.92]" >See more photos</p>
                                 </div>
                             </div>
                             <div className="relative ">
@@ -130,13 +186,15 @@ const IndividualProperty = (data: props) => {
                                     fill
                                     className="w-full rounded-2xl"
                                 />
-                                <div className="bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center ">
+                                <div className="bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center " onClick={() => setImageCarousel(true)}>
                                     <p className="font-medium text-base leading-[17.92]">See more photos</p>
                                 </div>
 
                             </div>
                         </div>
                     </div>
+
+
 
                     <div className="flex w-full lg:gap-6 gap-4 mt-6 h-full lg:flex-row flex-col">
                         <div className="flex-1 flex flex-col lg:gap-5 gap-4">
