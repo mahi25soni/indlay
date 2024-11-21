@@ -163,7 +163,7 @@ const IndividualProperty = (data: props) => {
                                     fill
                                     className="w-full rounded-2xl"
                                 />
-                                <div className="lg:hidden bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center " onClick={() => setImageCarousel(true)}>
+                                <div className="lg:hidden bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center cursor-pointer" onClick={() => setImageCarousel(true)}>
                                     <p className="font-medium text-base leading-[17.92]" >See more photos</p>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@ const IndividualProperty = (data: props) => {
                                     fill
                                     className="w-full rounded-2xl"
                                 />
-                                <div className="bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center " onClick={() => setImageCarousel(true)}>
+                                <div className="bg-black absolute h-full w-full opacity-60 rounded-2xl text-white flex justify-center items-center cursor-pointer" onClick={() => setImageCarousel(true)}>
                                     <p className="font-medium text-base leading-[17.92]">See more photos</p>
                                 </div>
 
@@ -279,7 +279,8 @@ const IndividualProperty = (data: props) => {
                                 <div className='flex items-center font-medium lg:text-xl leading-[22.4px] lg:leading-[17.92px] text-base'>
                                     Locations
                                 </div>
-                                {mapLoaded && <PropertyLocation {...data?.property?.coordinates} />}
+                                {mapLoaded &&
+                                    <PropertyLocation {...data?.property?.coordinates} />}
 
                             </div>
                         </div>
